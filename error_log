@@ -1,0 +1,67 @@
+[31-Mar-2023 07:21:15 UTC] PHP Fatal error:  Uncaught Error: Call to a member function num_rows() on bool in /home/homedepo/public_html/application/models/welcome_model.php:63
+Stack trace:
+#0 /home/homedepo/public_html/application/controllers/welcome.php(108): Welcome_model->slide_total()
+#1 /home/homedepo/public_html/system/core/CodeIgniter.php(360): Welcome->index()
+#2 /home/homedepo/public_html/index.php(211): require_once('/home/homedepo/...')
+#3 {main}
+  thrown in /home/homedepo/public_html/application/models/welcome_model.php on line 63
+[31-Mar-2023 07:22:39 UTC] PHP Fatal error:  Uncaught Error: Call to a member function num_rows() on bool in /home/homedepo/public_html/application/models/welcome_model.php:63
+Stack trace:
+#0 /home/homedepo/public_html/application/controllers/welcome.php(108): Welcome_model->slide_total()
+#1 /home/homedepo/public_html/system/core/CodeIgniter.php(360): Welcome->index()
+#2 /home/homedepo/public_html/index.php(211): require_once('/home/homedepo/...')
+#3 {main}
+  thrown in /home/homedepo/public_html/application/models/welcome_model.php on line 63
+[31-Mar-2023 07:23:27 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method Welcome_model::slide_total() in /home/homedepo/public_html/application/controllers/welcome.php:108
+Stack trace:
+#0 /home/homedepo/public_html/system/core/CodeIgniter.php(360): Welcome->index()
+#1 /home/homedepo/public_html/index.php(211): require_once('/home/homedepo/...')
+#2 {main}
+  thrown in /home/homedepo/public_html/application/controllers/welcome.php on line 108
+[31-Mar-2023 07:24:05 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method Welcome_model::slide_total() in /home/homedepo/public_html/application/controllers/welcome.php:108
+Stack trace:
+#0 /home/homedepo/public_html/system/core/CodeIgniter.php(360): Welcome->index()
+#1 /home/homedepo/public_html/index.php(211): require_once('/home/homedepo/...')
+#2 {main}
+  thrown in /home/homedepo/public_html/application/controllers/welcome.php on line 108
+[31-Mar-2023 07:24:37 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method Welcome_model::slide_total() in /home/homedepo/public_html/application/controllers/welcome.php:108
+Stack trace:
+#0 /home/homedepo/public_html/system/core/CodeIgniter.php(360): Welcome->index()
+#1 /home/homedepo/public_html/index.php(211): require_once('/home/homedepo/...')
+#2 {main}
+  thrown in /home/homedepo/public_html/application/controllers/welcome.php on line 108
+[31-Mar-2023 07:24:50 UTC] PHP Fatal error:  Uncaught Error: Call to a member function result() on bool in /home/homedepo/public_html/application/models/welcome_model.php:71
+Stack trace:
+#0 /home/homedepo/public_html/application/controllers/welcome.php(109): Welcome_model->slide_show()
+#1 /home/homedepo/public_html/system/core/CodeIgniter.php(360): Welcome->index()
+#2 /home/homedepo/public_html/index.php(211): require_once('/home/homedepo/...')
+#3 {main}
+  thrown in /home/homedepo/public_html/application/models/welcome_model.php on line 71
+[31-Mar-2023 07:27:12 UTC] PHP Fatal error:  Uncaught Error: Call to a member function num_rows() on bool in /home/homedepo/public_html/application/models/welcome_model.php:63
+Stack trace:
+#0 /home/homedepo/public_html/application/controllers/welcome.php(108): Welcome_model->slide_total()
+#1 /home/homedepo/public_html/system/core/CodeIgniter.php(360): Welcome->index()
+#2 /home/homedepo/public_html/index.php(211): require_once('/home/homedepo/...')
+#3 {main}
+  thrown in /home/homedepo/public_html/application/models/welcome_model.php on line 63
+[31-Mar-2023 07:29:13 UTC] PHP Fatal error:  Uncaught Error: Call to a member function num_rows() on bool in /home/homedepo/public_html/application/models/welcome_model.php:63
+Stack trace:
+#0 /home/homedepo/public_html/application/controllers/search.php(116): Welcome_model->slide_total()
+#1 /home/homedepo/public_html/system/core/CodeIgniter.php(360): Search->filter('Sanitary%20Ware', '4', 'Bathtub', '69', 'Free%20standing...', 'demo-shop-8-con...')
+#2 /home/homedepo/public_html/index.php(211): require_once('/home/homedepo/...')
+#3 {main}
+  thrown in /home/homedepo/public_html/application/models/welcome_model.php on line 63
+[31-Mar-2023 07:30:24 UTC] PHP Fatal error:  Uncaught Error: Call to a member function num_rows() on bool in /home/homedepo/public_html/application/models/welcome_model.php:63
+Stack trace:
+#0 /home/homedepo/public_html/application/controllers/welcome.php(108): Welcome_model->slide_total()
+#1 /home/homedepo/public_html/system/core/CodeIgniter.php(360): Welcome->index()
+#2 /home/homedepo/public_html/index.php(211): require_once('/home/homedepo/...')
+#3 {main}
+  thrown in /home/homedepo/public_html/application/models/welcome_model.php on line 63
+[31-Mar-2023 07:31:44 UTC] PHP Fatal error:  Uncaught Error: Call to a member function num_rows() on bool in /home/homedepo/public_html/application/models/welcome_model.php:63
+Stack trace:
+#0 /home/homedepo/public_html/application/controllers/welcome.php(108): Welcome_model->slide_total()
+#1 /home/homedepo/public_html/system/core/CodeIgniter.php(360): Welcome->index()
+#2 /home/homedepo/public_html/index.php(211): require_once('/home/homedepo/...')
+#3 {main}
+  thrown in /home/homedepo/public_html/application/models/welcome_model.php on line 63
