@@ -1,115 +1,5 @@
 <style media="screen">
-  @media (min-width: 480px) {
-    .responsivetb-product {
-      width: 200px;
-      height: 200px;
-      /* background: rgba(255, 0, 0, 0.1)!important; */
-    }
 
-    .imgtb-responsive {
-      height: 192px !important;
-    }
-  }
-
-  @media (max-width: 991px) {
-    #viewhp {
-      display: none !important;
-    }
-
-    #viewpc {
-      display: block !important;
-    }
-  }
-
-  @media (min-width: 991px) {
-    #viewhp {
-      display: block !important;
-    }
-
-    #viewpc {
-      display: none !important;
-    }
-  }
-
-  .addtocart {
-    background: #fff !important;
-    color: #ee3d43 !important;
-  }
-
-  .del-favorit {
-    background: #ee3d43;
-    color: #fff;
-
-    visibility: visible;
-    left: auto;
-    right: auto;
-    transition: all 0.2s;
-    text-align: center;
-    margin-top: 0;
-    margin-bottom: 0;
-
-
-    font-size: 14px;
-    padding: 2px 10px 0 10px;
-    height: 32px;
-    line-height: 30px;
-  }
-
-  .del-favorit:hover {
-    background: #fff;
-    color: #ee3d43;
-    border: 1px solid #ee3d43;
-  }
-
-  .in-favorit {
-    background: #fff;
-    color: #ee3d43;
-
-    visibility: visible;
-    left: auto;
-    right: auto;
-    transition: all 0.2s;
-    text-align: center;
-    margin-top: 0;
-    margin-bottom: 0;
-
-
-    font-size: 14px;
-    padding: 0 10px 0 10px;
-    height: 32px;
-    line-height: 30px;
-    border: 1px solid #ee3d43;
-  }
-
-  .in-favorit:hover {
-    background: #ee3d43;
-    color: #fff;
-    border: 1px solid #ee3d43;
-  }
-
-   /* @media (max-width: 992px) {
-    .container-product {
-      padding-top: 130px;
-    }
-  }
-
-  @media (min-width: 992px) {
-    .container-product {
-      padding-top: 20px;
-    }
-  } */
-
-  @media (max-width: 992px) {
-    .container-pilihan {
-      padding-top: 170px;
-    }
-  }
-
-  @media (min-width: 992px) {
-    .container-pilihan {
-      padding-top: 20px;
-    }
-  }
 </style>
 
 <?php
@@ -418,7 +308,7 @@
                 ?>
 
                   <li>
-                    <div class="product">
+                    <div class="box-product product">
                       <figure class="product-image-area responsivetb-product">
 
 
@@ -450,14 +340,14 @@
                       </figure>
                       <div class="product-details-area">
 
-                        <h2 class="product-name" style="text-align:left;font-size:10px;font-weight:700;">
+                        <h2 class="product-name name-i">
                           <a href="<?=base_url('seller/detail/'.$seller_array[$productterbaru->id_member])?>" title="homedepo" style="color:#1c2a5f!important">
-                            <i class="fa fa-building" style="color:#db0c13;"></i>
-                            <?= $productterbaru->member ?>
+                            <i class="fa fa-building-o" style="color:#db0c13;"></i>
+                            <?= $productterbaru->inisial_member ?>
                           </a>
                         </h2>
 
-                        <h2 class="product-name">
+                        <h2 class="product-name name-p">
                           <a href="<?= base_url() ?>product/detail/<?= $productterbaru->is_product ?>/<?= $productterbaru->id ?>/<?= $productterbaru->nama_file ?>" title="<?= $productterbaru->nama_product ?>">
                             <?= $productterbaru->nama_product ?>
                           </a>
@@ -468,8 +358,8 @@
                       </div>
                     </div> -->
 
-                        <div class="product-price-box">
-                          <span class="product-price">
+                        <div class="product-price-box" style="text-align:left;">
+                          <span class="product-price text-price">
                             Rp. <?= number_format($productterbaru->harga_product, 0, ',', '.') ?>
                           </span>
                         </div>

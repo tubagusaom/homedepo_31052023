@@ -148,7 +148,7 @@
 
             <h2 class="product-name" style="text-align:left;font-size:10px;font-weight:700;">
               <a href="<?=base_url('seller/detail/'.$inisial_seller)?>" title="homedepo" style="color:#1c2a5f!important">
-                <i class="fa fa-building" style="color:#db0c13;"></i>
+                <i class="fa fa-building-o" style="color:#db0c13;"></i>
                 <?=$detail_product->member?>
               </a>
             </h2>

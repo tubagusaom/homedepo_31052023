@@ -344,7 +344,7 @@
                 ?>
 
                   <li>
-                    <div class="product">
+                    <div class="box-product product">
                       <figure class="product-image-area responsivetb-product">
 
                         <a href="<?= base_url() ?>product/detail/<?= $productterbaru->is_product ?>/<?= $productterbaru->id ?>/<?= $productterbaru->nama_file ?>" title="<?= $productterbaru->nama_product ?>" class="product-image">
@@ -401,14 +401,14 @@
                       </figure>
                       <div class="product-details-area">
 
-                        <h2 class="product-name" style="text-align:left;font-size:10px;font-weight:700;">
-                          <a href="#" title="homedepo" style="color:#1c2a5f!important">
-                            <i class="fa fa-building" style="color:#db0c13;"></i>
-                            <?= $productterbaru->member ?>
+                        <h2 class="product-name name-i">
+                          <a href="<?=base_url('seller/detail/'.$seller_array[$productterbaru->id_member])?>" title="homedepo" style="color:#1c2a5f!important">
+                            <i class="fa fa-building-o" style="color:#db0c13;"></i>
+                            <?= $productterbaru->inisial_member ?>
                           </a>
                         </h2>
 
-                        <h2 class="product-name">
+                        <h2 class="product-name name-p">
                           <a href="<?= base_url() ?>product/detail/<?= $productterbaru->id ?>/<?= $productterbaru->nama_file ?>" title="<?= $productterbaru->nama_product ?>">
                             <?= $productterbaru->nama_product ?>
                           </a>
@@ -419,8 +419,8 @@
                       </div>
                     </div> -->
 
-                        <div class="product-price-box">
-                          <span class="product-price">
+                        <div class="product-price-box" style="text-align:left;">
+                          <span class="product-price text-price">
                             Rp. <?= number_format($productterbaru->harga_product, 0, ',', '.') ?>
                           </span>
                         </div>

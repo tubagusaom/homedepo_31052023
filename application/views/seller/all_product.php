@@ -14,21 +14,96 @@
 
 <div class="container c_tb_ap">
     <div class="row">
+
       <div class="col-md-12 normal">
-        <div class="tabs home-products-tab">
+        <div class="tabs home-products-tab box-products-tab">
           <ul class="nav nav-links">
             <li class="active">
-              <a href="#ProdukTerbaru" data-toggle="tab"><?=$total_spa?> Produk <?=$show_seller->member?></a>
+              <a href="#ProdukTerbaru" data-toggle="tab">
+                <i class="fa fa-building-o" style="color:#db0c13;font-size:13px;"></i>
+                <?=$show_seller->member?>
+              </a>
+              <h6><?=$show_seller->province_name. ' - ' .$show_seller->city_name?></h6>
+              <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras non placerat mi. Etiam non tellus</p> -->
             </li>
             <!-- <li>
             <a href="#Diskon" data-toggle="tab">Kejar Diskon</a>
           </li> -->
           </ul>
+        </div>
+      </div>
+
+      <aside class="col-md-3 normal sidebar shop-sidebar" style="padding-top:13px;">
+
+        <div class="custom-block">
+
+          <!-- <p><?=$show_seller->member?></p> -->
+          <!-- <h5>This is a custom sub-title.</h5>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras non placerat mi. Etiam non tellus</p> -->
+        </div>
+
+        <!-- <hr class="mt-xlg mb-xl"> -->
+
+        <div class="panel-group mb-xlg">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title">
+                <a class="accordion-toggle" data-toggle="collapse" href="#cat-list-container">
+                  Etalase Toko
+                </a>
+              </h4>
+            </div>
+            <div class="accordion-body collapse in" id="cat-list-container">
+              <div class="panel-body">
+                <ul class="category-list">
+                  <li>
+                    <a href="#">Elektrikal</a>
+                    <a href="#" class="plus"></a>
+
+                    <ul>
+                      <li>
+                        <a href="#">Listrik &amp; Pencahayaan</a>
+                        <a href="#" class="plus"></a>
+                        <ul>
+                          <li><a href="#">-</a></li>
+                          <li><a href="#">-</a></li>
+                        </ul>
+                      </li>
+
+                      <li>
+                        <a href="#">Ekserior</a>
+                        <a href="#" class="plus"></a>
+                        <ul>
+                          <li><a href="#">Genteng</a></li>
+                          <li><a href="#">Pintu</a></li>
+                        </ul>
+                      </li>
+                      <li><a href="#">Specials</a></li>
+                      <li><a href="#">Featured</a></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="#">Interior</a>
+                    <a href="#" class="plus"></a>
+                    <ul>
+                      <li><a href="#">Keramik</a></li>
+                      <li><a href="#">Sanitary</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <div class="col-md-9 normal">
+        <div class="tabs home-products-tab">
 
           <div class="tab-content">
 
             <div id="ProdukTerbaru" class="tab-pane active">
-              <ul class="products-grid columns5">
+              <ul class="products-grid columns4">
 
                 <?php
                 foreach ($show_product_all as $key => $productall) {
@@ -53,7 +128,7 @@
                 ?>
 
                   <li>
-                    <div class="product">
+                    <div class="box-product product">
                       <figure class="product-image-area responsivetb-product">
 
 
@@ -82,16 +157,17 @@
 
 
                       </figure>
+
                       <div class="product-details-area">
 
-                        <h2 class="product-name" style="text-align:left;font-size:10px;font-weight:700;">
+                        <h2 class="product-name name-i">
                           <a href="<?=base_url('seller/detail/'.$inisial_seller)?>" title="homedepo" style="color:#1c2a5f!important">
-                            <i class="fa fa-building" style="color:#db0c13;"></i>
-                            <?= $productall->member ?>
+                            <i class="fa fa-building-o" style="color:#db0c13;"></i>
+                            <?= $productall->inisial_member ?>
                           </a>
                         </h2>
 
-                        <h2 class="product-name">
+                        <h2 class="product-name name-p">
                           <a href="<?= base_url() ?>product/detail/<?= $productall->is_product ?>/<?= $productall->id ?>/<?= $filename ?>" title="<?= $productall->nama_product ?>">
                             <?= $productall->nama_product ?>
                           </a>
@@ -102,8 +178,8 @@
                       </div>
                     </div> -->
 
-                        <div class="product-price-box">
-                          <span class="product-price">
+                        <div class="product-price-box" style="text-align:left;">
+                          <span class="product-price text-price">
                             Rp. <?= number_format($productall->harga_product, 0, ',', '.') ?>
                           </span>
                         </div>

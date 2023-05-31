@@ -3,7 +3,10 @@
 class Seller_Model extends MY_Model {
 
     function show_seller($id){
+        $this->db->select('a.*,b.province_name,c.city_name');
         $this->db->from(kode_tbl() . 'members a');
+        $this->db->join('m_ro_provinsi b', 'a.id_province_member=b.province_id', 'left');
+        $this->db->join('m_ro_kota c', 'a.id_kabupaten_member=c.city_id', 'left');
         $this->db->where('a.id', $id);
 
         $query = $this->db->get()->row();
@@ -11,7 +14,7 @@ class Seller_Model extends MY_Model {
     }
 
     function show_product_all($id){
-        $this->db->select('a.*,c.member');
+        $this->db->select('a.*,c.member,c.inisial_member');
         $this->db->from(kode_tbl() . 'product a');
         // $this->db->join('t_repositori b', 'a.id=b.id_product', 'left');
         $this->db->join(kode_tbl() . 'members c', 'a.id_member=c.id');

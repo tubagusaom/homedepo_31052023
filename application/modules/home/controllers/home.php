@@ -23,6 +23,23 @@ class Home extends MY_Controller
         $id_user = $this->auth->get_user_data()->id;
         $id_member = $this->auth->get_user_data()->id_member;
 
+        $seller_arr = array(
+          '119'=>'haston',
+          '111'=>'mitra10',
+          '112'=>'amarodinamikatangguh',
+          '113'=>'cisangkan',
+          '114'=>'histell',
+          '115'=>'rosykramindo',
+          '116'=>'lixiltrading',
+          '117'=>'sullyabadijaya',
+          '0'=>'csa',
+          '118'=>'kulitbatu',
+          '120'=>'suryarezekitimberutama',
+          '121'=>'lantaibatu',
+          '0'=>'tukangbagus',
+          '0'=>'gradana',
+        );
+
         // var_dump($jenis_user); die();
 
         if ($jenis_user == 2) { //seller
@@ -34,6 +51,7 @@ class Home extends MY_Controller
             // var_dump(count($keranjang_order)); die();
 
             $inisial = '';
+            $seller_array = '';
 
             $slide_count = '';
             $slideshow = '';
@@ -67,6 +85,7 @@ class Home extends MY_Controller
             // $this->load->view('templates/bootstraps/bottom',$data);
 
             $inisial = "One Step Solution for Your Home";
+            $seller_array = $seller_arr;
 
             $slide_count = $this->welcome_model->slide_total();
             $slideshow = $this->welcome_model->slide_show();
@@ -107,6 +126,7 @@ class Home extends MY_Controller
             // $data_aktivitas = $this->Sertifikasi_Model->riwayat_uji($id_member);
 
             $inisial = '';
+            $seller_array = $seller_arr;
 
             $slide_count = "";
             $slideshow = "";
@@ -128,6 +148,7 @@ class Home extends MY_Controller
             // $data_aktivitas = "";
 
             $inisial = '';
+            $seller_array = '';
 
             $slide_count = "";
             $slideshow = "";
@@ -222,7 +243,7 @@ class Home extends MY_Controller
                 'product_terbaru' => $product_terbaru,
                 'product_favorite' => $product_favorite,
                 // 'data_aktivitas' => $data_aktivitas,
-
+                'seller_array' => $seller_array,
                 'slide_count' => $slide_count,
                 'slideshow' => $slideshow,
                 'showiklan' => $showiklan

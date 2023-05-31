@@ -134,7 +134,7 @@ class Welcome_model extends MY_Model
 
     // var_dump($id_member); die();
 
-    $this->db->select('a.*,b.id AS id_repo,b.nama_file,c.member');
+    $this->db->select('a.*,b.id AS id_repo,b.nama_file,c.member,c.inisial_member');
     $this->db->from(kode_tbl() . 'product a');
     $this->db->join('t_repositori b', 'a.id=b.id_product', 'left');
     $this->db->join(kode_tbl() . 'members c', 'a.id_member=c.id');
