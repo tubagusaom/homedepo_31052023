@@ -198,11 +198,17 @@ class Product extends MY_Controller
           $data['foto_product_1'] = $sheetData[$x]['M'];
           $data['foto_product_2'] = $sheetData[$x]['N'];
           $data['foto_product_3'] = $sheetData[$x]['O'];
+
+          $data['created_by'] = $id_member;
+          $data['created_when'] = '0000-00-00 00:00:00';
+          $data['updated_by'] = $id_member;
+          $data['updated_when'] = '0000-00-00 00:00:00';
+
           $this->db->insert($product, $data);
           $id_ins = $this->db->insert_id();
 
           $data_repo['id_product'] = $id_ins;
-          $data_repo['nama_file'] = $sheetData[$x]['D'];
+          $data_repo['nama_file'] = $sheetData[$x]['A'];
           $data_repo['nama_dokumen'] = $sheetData[$x]['D'];
           $data_repo['id_users'] = $id_member;
           $data_repo['jenis_dokumen'] = '7';
