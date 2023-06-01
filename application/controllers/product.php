@@ -201,11 +201,10 @@ class Product extends MY_Controller
           $this->db->insert($product, $data);
           $this->db->insert_id();
 
-          $data_repo['nama_file'] = $sheetData[$x]['A'];
+          $data_repo['nama_file'] = $sheetData[$x]['D'];
           $data_repo['nama_dokumen'] = $sheetData[$x]['D'];
           $data_repo['id_users'] = $id_member;
           $data_repo['jenis_dokumen'] = '7';
-
           $this->db->insert($repo, $data_repo);
         }
         // echo json_encode(array('msgType'=>'success','msgValue'=>"Data sukses diimport"));
