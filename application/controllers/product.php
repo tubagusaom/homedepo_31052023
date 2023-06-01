@@ -124,8 +124,9 @@ class Product extends MY_Controller
 
     // var_dump($config['upload_path']); die();
 
-    $id_member = $this->input->post('id_member');
-    $product = kode_tbl() . 'product';
+    $id_member  = $this->input->post('id_member');
+    $product    = kode_tbl() . 'product';
+    $repo       = 't_repositori';
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
@@ -180,24 +181,32 @@ class Product extends MY_Controller
           // $data['id_sub_kategori'] = '426';
           $data['is_product'] = '1';
           $data['kode_product'] = $sheetData[$x]['A'];
-          $data['nama_product'] = $sheetData[$x]['C'];
+          $data['nama_product'] = $sheetData[$x]['D'];
 
           $data['id_menu_kategori'] = $sheetData[$x]['B'];
           $data['id_kategori'] = $sheetData[$x]['B'];
-          $data['id_sub_kategori'] = $sheetData[$x]['B'];
+          $data['id_sub_kategori'] = $sheetData[$x]['C'];
 
-          $data['ket_product'] = $sheetData[$x]['D'];
-          $data['min_pesan_product'] = $sheetData[$x]['E'];
-          $data['jumlah_product'] = $sheetData[$x]['F'];
-          $data['harga_product'] = $sheetData[$x]['G'];
-          $data['link_product'] = $sheetData[$x]['H'];
-          $data['berat_product'] = $sheetData[$x]['I'];
-          $data['berat_paket'] = $sheetData[$x]['J'];
-          $data['foto_product'] = $sheetData[$x]['K'];
-          $data['foto_product_1'] = $sheetData[$x]['L'];
-          $data['foto_product_2'] = $sheetData[$x]['M'];
-          $data['foto_product_3'] = $sheetData[$x]['N'];
+          $data['ket_product'] = $sheetData[$x]['E'];
+          $data['min_pesan_product'] = $sheetData[$x]['F'];
+          $data['jumlah_product'] = $sheetData[$x]['G'];
+          $data['harga_product'] = $sheetData[$x]['H'];
+          $data['link_product'] = $sheetData[$x]['I'];
+          $data['berat_product'] = $sheetData[$x]['J'];
+          $data['berat_paket'] = $sheetData[$x]['K'];
+          $data['foto_product'] = $sheetData[$x]['L'];
+          $data['foto_product_1'] = $sheetData[$x]['M'];
+          $data['foto_product_2'] = $sheetData[$x]['N'];
+          $data['foto_product_3'] = $sheetData[$x]['O'];
           $this->db->insert($product, $data);
+          $this->db->insert_id();
+
+          $data_repo['nama_file'] = $sheetData[$x]['A'];
+          $data_repo['nama_dokumen'] = $sheetData[$x]['D'];
+          $data_repo['id_users'] = $id_member;
+          $data_repo['jenis_dokumen'] = '7';
+
+          $this->db->insert($repo, $data_repo);
         }
         // echo json_encode(array('msgType'=>'success','msgValue'=>"Data sukses diimport"));
         redirect('product/data');
