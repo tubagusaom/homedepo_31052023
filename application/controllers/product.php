@@ -199,8 +199,9 @@ class Product extends MY_Controller
           $data['foto_product_2'] = $sheetData[$x]['N'];
           $data['foto_product_3'] = $sheetData[$x]['O'];
           $this->db->insert($product, $data);
-          $this->db->insert_id();
+          $id_ins = $this->db->insert_id();
 
+          $data_repo['id_product'] = $id_ins;
           $data_repo['nama_file'] = $sheetData[$x]['D'];
           $data_repo['nama_dokumen'] = $sheetData[$x]['D'];
           $data_repo['id_users'] = $id_member;
