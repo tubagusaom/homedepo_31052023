@@ -311,6 +311,9 @@
                     <div class="box-product product">
                       <figure class="product-image-area responsivetb-product">
 
+                        <?php
+                          $nm_f = $productterbaru->nama_file;
+                        ?>
 
                         <a href="<?= base_url() ?>product/detail/<?= $productterbaru->is_product ?>/<?= $productterbaru->id ?>/<?= $productterbaru->nama_file ?>" title="<?= $productterbaru->nama_product ?>" class="product-image">
                           <img class="imgtb-responsive" src="<?= base_url() ?>assets/img/product/<?= $productterbaru->nama_file ?>" alt="<?= $productterbaru->tag_product ?>">

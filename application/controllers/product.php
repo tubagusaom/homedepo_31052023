@@ -209,7 +209,7 @@ class Product extends MY_Controller
 
           $data_repo['id_product'] = $id_ins;
           $data_repo['nama_file'] = $sheetData[$x]['A'];
-          $data_repo['nama_dokumen'] = $sheetData[$x]['D'];
+          $data_repo['nama_dokumen'] = 'produk_1';
           $data_repo['id_users'] = $id_member;
           $data_repo['jenis_dokumen'] = '7';
           $this->db->insert($repo, $data_repo);
