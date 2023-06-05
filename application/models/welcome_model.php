@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 if (!defined('BASEPATH'))
   exit('No direct script access allowed');
@@ -143,8 +143,8 @@ class Welcome_model extends MY_Model
     // $this->db->where('c.id_member !=', $id_member);
     $this->db->where('b.nama_dokumen', 'produk_1');
     $this->db->where('c.status_delete <', '2');
-    $this->db->order_by('a.id', 'DESC');
-    // $this->db->order_by('', RAND());
+    // $this->db->order_by('a.id', 'DESC');
+    $this->db->order_by('rand()');
     $this->db->limit('20');
     $this->db->group_by('a.id');
 

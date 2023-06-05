@@ -55,7 +55,7 @@ class Search extends MY_Controller {
 
 		$offset = $this->uri->segment(4);
 		// $this->db->where('id_group_users',6);
-		$this->db->where('is_product','0');
+		// $this->db->where('is_product','0');
 		$this->db->like('nama_product', $keyword);
 		$jml = $this->db->get(kode_tbl().'product');
 		$data['jmldata'] = $jml->num_rows();
