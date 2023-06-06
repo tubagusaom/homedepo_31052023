@@ -88,11 +88,11 @@
     border: 1px solid #ee3d43;
   }
 
-  @media (max-width: 992px) {
+  /* @media (max-width: 992px) {
     .container-product {
       padding-top: 130px;
     }
-  }
+  } */
 
   @media (min-width: 992px) {
     .container-product {
@@ -265,7 +265,7 @@
   </div>
 </div> -->
 
-  <div class="container">
+  <div class="container" style="padding-top: 30px;">
     <div class="row">
       <div class="col-md-12 normal">
 
