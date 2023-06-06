@@ -125,6 +125,11 @@
     background-color: #db0c13;
     color: #fff;
   }
+
+  .banners-container {
+    padding: 0px 0 26px!important;
+    background-color: transparent!important;
+  }
 </style>
 
 <div role="main" class="main">
@@ -265,7 +270,7 @@
   </div>
 </div> -->
 
-  <div class="container" style="padding-top: 30px;">
+  <div class="container">
     <div class="row">
       <div class="col-md-12 normal">
 

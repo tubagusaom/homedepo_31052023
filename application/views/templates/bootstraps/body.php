@@ -12,6 +12,11 @@
     background-color: #db0c13;
     color: #fff;
   }
+
+  .banners-container {
+    padding: 0px!important;
+    background-color: transparent!important;
+  }
 </style>
 
 <?php
