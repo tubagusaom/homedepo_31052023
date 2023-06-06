@@ -345,7 +345,7 @@
         <div class="tabs home-products-tab">
           <ul class="nav nav-links">
           <li class="active" style="float: left;">
-              <a href="#ProdukTerbaru" data-toggle="tab">Produk Terbaru</a>
+              <a href="#ProdukTerbaru" data-toggle="tab">Rekomendasi</a>
             </li>
             <li style="float: right;font-size:10px;color:#1c2a5f !important;">
               <a href="<?=base_url('welcome/tampil_lainnya')?>">Lihat Lainnya &nbsp; <i class="fa fa-angle-right" style="font-size:12px;font-weight:bold;"></i></a>
