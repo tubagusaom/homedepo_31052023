@@ -116,6 +116,7 @@ class Product_model extends MY_Model
     $this->db->where('c.status_delete <', '2');
     $this->db->order_by('a.id', 'DESC');
     $this->db->group_by('a.id');
+    // $this->db->limit('50');
 
     // $this->db->limit($perpage);
     // $this->db->offset($offset);
