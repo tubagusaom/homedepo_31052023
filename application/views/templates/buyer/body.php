@@ -132,7 +132,7 @@
   }
 
   .owl-theme .owl-dots .owl-dot span {
-      height: 6px;
+      height: 5px;
       width: 20px;
       margin: -2px;
   }
