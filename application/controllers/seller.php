@@ -77,7 +77,7 @@ class Seller extends MY_Controller {
 		$data['total_spa'] = $csps;
 
 		$data['inisial_seller'] = $this->inisial_seller($seller_array[$inisial]);
-		$data['inisial'] = $show_seller->member." Produk";
+		$data['inisial'] = "Produk ".$show_seller->member;
 
 
 
