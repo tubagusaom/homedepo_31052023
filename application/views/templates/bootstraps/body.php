@@ -1,5 +1,17 @@
 <style media="screen">
+  .btn-lainnya {
+    background-color: #fff;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid red ;
+    text-align: center;
+    font-weight: 600;
+  }
 
+  .btn-lainnya:hover {
+    background-color: #db0c13;
+    color: #fff;
+  }
 </style>
 
 <?php
@@ -300,7 +312,7 @@
 
           <div class="tab-content">
 
-            <div id="ProdukTerbaru" class="tab-pane active">
+            <div id="ProdukTerbaru" class="row tab-pane active">
               <ul class="products-grid columns5">
 
                 <?php
@@ -358,7 +370,7 @@
                         </h2>
 
                         <h2 class="product-name name-p">
-                          <a href="<?= base_url() ?>product/detail/<?= $productterbaru->is_product ?>/<?= $productterbaru->id ?>/<?= $productterbaru->nama_file ?>" title="<?= $productterbaru->nama_product ?>">
+                        <a href="<?= base_url() ?>product/detail/<?= $productterbaru->is_product ?>/<?= $productterbaru->id ?>/<?= $f_product ?>" title="<?= $productterbaru->nama_product ?>">
                             <?= $productterbaru->nama_product ?>
                           </a>
                         </h2>
@@ -381,14 +393,12 @@
 
               </ul>
             </div>
-
-            <div id="Diskon" class="tab-pane">
-              <ul class="products-grid columns4">
-
-                <li>PRODUK KEJAR DISKON</li>
-
-              </ul>
-            </div>
+            
+            <a href="<?=base_url('welcome/tampil_lainnya')?>" class="">
+              <div class="btn btn-lainnya">
+                  LIHAT PRODUK LAINNYA
+              </div>
+            </a>
 
           </div>
         </div>

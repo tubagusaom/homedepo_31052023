@@ -45,6 +45,25 @@ class Search extends MY_Controller {
 			$data['total_keranjang'] = $total_keranjang;
 		}
 
+		$seller_array = array(
+            '119'=>'haston',
+      			'111'=>'mitra10',
+      			'112'=>'amarodinamikatangguh',
+      			'113'=>'cisangkan',
+      			'114'=>'histell',
+      			'115'=>'rosykramindo',
+      			'116'=>'lixiltrading',
+      			'117'=>'sullyabadijaya',
+      			'0'=>'csa',
+      			'118'=>'kulitbatu',
+      			'120'=>'suryarezekitimberutama',
+      			'121'=>'lantaibatu',
+      			'0'=>'tukangbagus',
+      			'0'=>'gradana',
+      		);
+
+          $data['seller_array'] = $seller_array;
+
 		// var_dump($data['nama_user']); die();
 		// $suffix = "?q=".$keyword;
 		// echo $suffix;
@@ -56,6 +75,7 @@ class Search extends MY_Controller {
 		$offset = $this->uri->segment(4);
 		// $this->db->where('id_group_users',6);
 		// $this->db->where('is_product','0');
+    	$this->db->where('is_product !=','2');
 		$this->db->like('nama_product', $keyword);
 		$jml = $this->db->get(kode_tbl().'product');
 		$data['jmldata'] = $jml->num_rows();

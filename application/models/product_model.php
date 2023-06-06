@@ -143,10 +143,12 @@ class Product_model extends MY_Model
            a.*,
            b.id AS id_repo,
            b.nama_file,
-           c.member
+           c.member,
+           c.inisial_member
          '
       );
       $this->db->like('a.nama_product', $search);
+      $this->db->where('a.is_product !=','2');
       $this->db->order_by('a.id', 'ASC');
       $this->db->limit($perpage);
       $this->db->offset($offset);

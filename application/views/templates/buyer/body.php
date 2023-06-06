@@ -111,6 +111,20 @@
       padding-top: 20px;
     }
   }
+
+  .btn-lainnya {
+    background-color: #fff;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid red ;
+    text-align: center;
+    font-weight: 600;
+  }
+
+  .btn-lainnya:hover {
+    background-color: #db0c13;
+    color: #fff;
+  }
 </style>
 
 <div role="main" class="main">
@@ -320,7 +334,6 @@
     </div>
   </div>
 
-
   <div class="container" style="padding-top:20px;">
     <div class="row">
       <div class="col-md-12 normal">
@@ -340,24 +353,33 @@
               <ul class="products-grid columns5">
 
                 <?php
-                foreach ($product_terbaru as $key => $productterbaru) {
+                  foreach ($product_terbaru as $key => $productterbaru) {
+                  if ($productterbaru->is_product == 1){
+                    $f_product = $productterbaru->nama_file.".jpg";
+                    $l_img = base_url()."assets/img/product/m10/".$productterbaru->nama_file.".jpg";
+                    $get_img = "assets/img/product/m10/".$productterbaru->nama_file.".jpg";
+                  }else {
+                    $f_product = $productterbaru->nama_file;
+                    $l_img = base_url()."assets/img/product/".$productterbaru->nama_file;
+                    $get_img = "assets/img/product/".$productterbaru->nama_file;
+                  }
+
+                  if (file_exists($get_img)) {
                 ?>
 
                   <li>
                     <div class="box-product product">
                       <figure class="product-image-area responsivetb-product">
 
-                        <a href="<?= base_url() ?>product/detail/<?= $productterbaru->is_product ?>/<?= $productterbaru->id ?>/<?= $productterbaru->nama_file ?>" title="<?= $productterbaru->nama_product ?>" class="product-image">
-                          <img class="imgtb-responsive" src="<?= base_url() ?>assets/img/product/<?= $productterbaru->nama_file ?>" alt="<?= $productterbaru->tag_product ?>">
+                        <a href="<?= base_url() ?>product/detail/<?= $productterbaru->is_product ?>/<?= $productterbaru->id ?>/<?= $f_product ?>" title="<?= $productterbaru->nama_product ?>" class="product-image">
+                          <img class="imgtb-responsive" src="<?= $l_img ?>" alt="<?= $productterbaru->tag_product ?>">
                           <!-- <img src="<?= base_url() ?>assets/img/product/<?= $productterbaru->nama_file ?>" alt="<?= $productterbaru->tag_product ?>" class="product-hover-image"> -->
                         </a>
 
-                        <a href="<?= base_url() ?>product/detail/<?= $productterbaru->is_product ?>/<?= $productterbaru->id ?>/<?= $productterbaru->nama_file ?>" class="product-quickview">
+                        <a href="<?= base_url() ?>product/detail/<?= $productterbaru->is_product ?>/<?= $productterbaru->id ?>/<?= $f_product ?>" class="product-quickview">
                           <i class="fa fa-share-square-o"></i>
                           <span>Lihat Produk</span>
                         </a>
-
-
 
                         <div class="product-actions" id="divProductActions">
 
@@ -409,7 +431,7 @@
                         </h2>
 
                         <h2 class="product-name name-p">
-                          <a href="<?= base_url() ?>product/detail/<?= $productterbaru->id ?>/<?= $productterbaru->nama_file ?>" title="<?= $productterbaru->nama_product ?>">
+                        <a href="<?= base_url() ?>product/detail/<?= $productterbaru->is_product ?>/<?= $productterbaru->id ?>/<?= $f_product ?>" title="<?= $productterbaru->nama_product ?>">
                             <?= $productterbaru->nama_product ?>
                           </a>
                         </h2>
@@ -428,18 +450,16 @@
                     </div>
                   </li>
 
-                <?php } ?>
+                <?php }} ?>
 
               </ul>
             </div>
 
-            <div id="Diskon" class="tab-pane">
-              <ul class="products-grid columns4">
-
-                <li>PRODUK KEJAR DISKON</li>
-
-              </ul>
-            </div>
+            <a href="<?=base_url('welcome/tampil_lainnya')?>" class="">
+              <div class="btn btn-lainnya">
+                  LIHAT PRODUK LAINNYA
+              </div>
+            </a>
 
           </div>
         </div>

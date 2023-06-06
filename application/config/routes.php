@@ -25,6 +25,7 @@ $route['tamansari-garden'] = "tamansari_garden";
 
 $route['daftar-merchant'] = "welcome/daftar_merchant";
 $route['daftar-buyer'] = "welcome/daftar";
+$route['produk-lainnya'] = "welcome/tampil_lainnya";
 
 
 $route['f/(:any)'] = "search/filter/$1";

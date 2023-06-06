@@ -70,7 +70,7 @@ class Home extends MY_Controller
 
             // var_dump($sub_kategori); die();
 
-        } else if ($jenis_user == 3) { //buyer
+        } else if ($jenis_user == 3) { //buyer 
             $template_header = ('templates/buyer/header');
             $template_body = 'templates/buyer/body';
             // $template_bottom = 'templates/buyer/bottom_buyer';

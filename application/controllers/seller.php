@@ -86,7 +86,6 @@ class Seller extends MY_Controller {
 		// var_dump($data['show_product_all']); die();
 		// var_dump(count($show_product_all)); die();
 
-
 		if (empty($id_member)) {
 			$this->load->view('templates/bootstraps/header', $data);
 		} else {

@@ -92,16 +92,11 @@
             <?php
               $total_filter = count($show_filter_product);
 
-              if ($jmldata == 0) {
-                $notifsearch = "Oops, produk tidak ditemukan";
-              }else {
-                $notifsearch = '<font style="color:#777;">Menampilkan ' .$jmldata. ' produk untuk </font> '.str_replace('%20',' ',$keyword);
-              }
+              
             ?>
 
             <a href="#ProdukTerbaru" data-toggle="tab" style="font-size:13px!important">
-              <!-- <font style="color:#777;;">Menampilkan hasil untuk </font> <?=str_replace('%20',' ',$keyword)?> -->
-              <?=$notifsearch ?>
+              <?=$notifsearch = '<font style="color:#777;">Menampilkan ' .$jmldata. ' produk </font> ';?>
             </a>
           </li>
           <!-- <li>
@@ -112,17 +107,6 @@
         <div class="tab-content">
 
           <div id="ProdukTerbaru" class="tab-pane active">
-
-            <?php
-              if ($jmldata == 0) {
-                // echo "Produk Belum Tersedia";
-            ?>
-
-            <div class="col-md-12">
-              <img id="img-notfound" src="<?=base_url()?>assets/img/produk_belum_tersedia.png" alt="homedepo">
-            </div>
-
-          <?php }else{ ?>
 
             <!-- please wait , is updating !!! -->
 
@@ -150,7 +134,6 @@
 
                     <a href="<?=base_url()?>product/detail/<?=$productterbaru->is_product?>/<?=$productterbaru->id?>/<?=$f_product?>" title="<?=$productterbaru->nama_product?>" class="product-image">
                       <img class="imgtb-responsive" src="<?=$l_img?>" alt="<?=$productterbaru->tag_product?>">
-                      <!-- <img src="<?=base_url()?>assets/img/product/<?=$productterbaru->nama_file?>" alt="<?=$productterbaru->tag_product?>" class="product-hover-image"> -->
                     </a>
 
                     <a href="<?=base_url()?>product/detail/<?=$productterbaru->is_product?>/<?=$productterbaru->id?>/<?=$f_product?>" class="product-quickview">
@@ -243,8 +226,7 @@
               <?php }} ?>
 
             </ul>
-
-            <?php } ?>
+            
           </div>
 
           <div class="col-md-3" style="margin-top:20px;margin-bottom:100px; border-top: 1px solid #ddd;">

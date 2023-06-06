@@ -17,11 +17,13 @@
         // $this->load->model('artikel_model');
         // $this->load->model('album_galeri_model');
         $this->load->helper('text');
-        $this->load->model('repositori_model');
         // $this->load->model('jadwal_asesmen_model');
         $this->load->helper('cookie');
         $this->load->library('curl');
+        $this->load->library('pagination');
+
         $this->load->model('slider_model');
+        $this->load->model('repositori_model');
       }
 
       // public function tutorial($id=false) {
@@ -154,6 +156,102 @@
         } else {
           redirect(base_url() . 'home');
         }
+      }
+
+      function tampil_lainnya($id=0,$offset=0){
+        
+        $data['aplikasi'] = $this->db->get('r_konfigurasi_aplikasi')->row();
+        $data['nama_user'] = $this->auth->get_user_data()->nama;
+        $data['inisial'] = "One Step Solution for Your Home";
+
+        $id_member = $this->auth->get_user_data()->id_member;
+
+        $data['menu'] = $this->welcome_model->menu();
+        $data['kategori'] = $this->welcome_model->kategori();
+        $data['sub_kategori'] = $this->welcome_model->sub_kategori();
+
+        $data['keranjang_buyer'] = $this->welcome_model->keranjang_buyer($id_member);
+
+        $keranjang_buyer = $data['keranjang_buyer'];
+
+        $data_toko = "";
+        $total_keranjang ="";
+        foreach ($keranjang_buyer as $key => $keranjang) {
+          $total_keranjang += $keranjang->jumlah_product;
+        }
+
+        if ($total_keranjang == "") {
+          $data['total_keranjang'] = '0';
+        }else {
+          $data['total_keranjang'] = $total_keranjang;
+        }
+
+        $seller_array = array(
+          '119'=>'haston',
+          '111'=>'mitra10',
+          '112'=>'amarodinamikatangguh',
+          '113'=>'cisangkan',
+          '114'=>'histell',
+          '115'=>'rosykramindo',
+          '116'=>'lixiltrading',
+          '117'=>'sullyabadijaya',
+          '0'=>'csa',
+          '118'=>'kulitbatu',
+          '120'=>'suryarezekitimberutama',
+          '121'=>'lantaibatu',
+          '0'=>'tukangbagus',
+          '0'=>'gradana',
+        );
+        $data['seller_array'] = $seller_array;
+
+        $offset = $this->uri->segment(4);
+        // $this->db->where('id_group_users',6);
+        $this->db->where('is_product !=','2');
+        // $this->db->where('id_member !=','119');
+        // $this->db->like('nama_product', $keyword);
+        $jml = $this->db->get(kode_tbl().'product');
+        $data['jmldata'] = $jml->num_rows();
+
+        $config['enable_query_strings'] = true;
+        // $config['prefix'] = "?q=".$keyword."&rftb=true";
+        $config['suffix'] = "";
+
+        $config['base_url'] = base_url().'welcome/tampil_lainnya/'.$id;
+        $config['total_rows'] = $jml->num_rows();
+        $config['per_page'] = 20;
+        $data['per_page'] = 20;
+        // $config['first_page'] = 'Awal';
+        // $config['last_page'] = 'Akhir';
+        // $config['next_page'] = '&laquo;';
+        // $config['prev_page'] = '&raquo;';
+        $config['uri_segment'] = 4;
+
+        $this->pagination->initialize($config);
+        //buat pagination
+        $data['halaman'] = $this->pagination->create_links();
+        $data['data'] = $this->welcome_model->get_all_product($config['per_page'],$offset);
+
+        // echo $offset;
+
+        // var_dump($data['data']); die();
+        // var_dump(json_encode($offset)); die();
+
+		    // }
+          // var_dump($data['menu']); die();
+
+          if (empty($id_member)) {
+            $header = 'bootstraps/header';
+            $filpro = "filter";
+          }else {
+            $header = 'buyer/header';
+            $filpro = "filter_buyer";
+          }
+
+          // var_dump($id_member); die();
+
+          $this->load->view('templates/'.$header,$data);
+          $this->load->view('templates/bootstraps/product_lainnya', $data);
+          $this->load->view('templates/bootstraps/bottom', $data);
       }
 
       //  private function _api_ongkir_post($origin,$des,$qty,$cour)
