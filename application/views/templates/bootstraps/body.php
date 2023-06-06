@@ -26,14 +26,11 @@
 
             <div class="tabs home-products-tab">
 
-              <ul class="nav nav-links">
+              <!-- <ul class="nav nav-links">
                 <li class="active">
                   <a href="#KategoriPilihan" data-toggle="tab">kategori Pilihan</a>
                 </li>
-                <!-- <li>
-                <a href="#Diskon" data-toggle="tab">Kejar Diskon</a>
-              </li> -->
-              </ul>
+              </ul> -->
 
               <div class="owl-carousel owl-theme manual clients-carousel owl-no-narrow " style="padding-top:10px;">
                 <a id="login-btn" data-toggle="modal" data-target="#myModal" href="#" title="Bazar" class="client" style="width:70px!important;margin-left:50px;">
@@ -175,14 +172,11 @@
 
         <div class="mb-xlg tabs home-products-tab">
 
-          <ul class="nav nav-links">
+          <!-- <ul class="nav nav-links">
             <li class="active">
               <a href="#ListPartner" data-toggle="tab">PARTNER</a>
             </li>
-            <!-- <li>
-            <a href="#Diskon" data-toggle="tab">Kejar Diskon</a>
-          </li> -->
-          </ul>
+          </ul> -->
 
           <!-- <h2 class="slider-title">
             <span class="inline-title">LIST PARTNER</span>
@@ -302,12 +296,12 @@
       <div class="col-md-12 normal">
         <div class="tabs home-products-tab">
           <ul class="nav nav-links">
-            <li class="active">
+            <li class="active" style="float: left;">
               <a href="#ProdukTerbaru" data-toggle="tab">Produk Terbaru</a>
             </li>
-            <!-- <li>
-            <a href="#Diskon" data-toggle="tab">Kejar Diskon</a>
-          </li> -->
+            <li style="float: right;font-size:10px;color:#1c2a5f !important;">
+              <a href="<?=base_url('welcome/tampil_lainnya')?>">Lihat Lainnya &nbsp; <i class="fa fa-angle-right" style="font-size:12px;font-weight:bold;"></i></a>
+            </li>
           </ul>
 
           <div class="tab-content">
