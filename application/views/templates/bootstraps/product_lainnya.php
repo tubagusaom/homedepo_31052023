@@ -128,7 +128,7 @@
                   if (file_exists($get_img)) {
               ?>
 
-              <li>
+            <div class="col-md-3 col-xs-6" style="padding: 10px 15px 20px 20px;">
               <div class="box-product product">
                   <figure class="product-image-area responsivetb-product">
 
@@ -221,7 +221,7 @@
                     </div>
                   </div>
                 </div>
-              </li>
+              </div>
 
               <?php }} ?>
 
