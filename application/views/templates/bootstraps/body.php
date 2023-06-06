@@ -70,7 +70,7 @@
             <?php foreach ($slideshow as $key => $slides) { ?>
 
               <!-- <a href="#" class="banner"> -->
-              <img src="<?= base_url() ?>assets/img/slides/<?= $slides->foto_slide ?>" alt="<?= $slides->nama_slide1 ?>">
+              <img src="<?= base_url() ?>assets/img/slides/<?= $slides->foto_slide ?>" alt="<?= $slides->nama_slide1 ?>" style="border-radius: 8px;">
               <!-- <img style="height:405px;" src="<?= base_url() ?>assets/img/slides/<?= $slides->foto_slide ?>" alt="<?= $slides->nama_slide1 ?>"> -->
               <!-- </a> -->
 
@@ -90,7 +90,7 @@
               <?php foreach ($showiklan as $key => $iklan) { ?>
 
                 <a href="#" class="banner">
-                  <img src="<?= base_url() ?>assets/img/iklan/<?= $iklan->foto_iklan ?>" alt="<?= $iklan->nama_iklan ?>">
+                  <img src="<?= base_url() ?>assets/img/iklan/<?= $iklan->foto_iklan ?>" alt="<?= $iklan->nama_iklan ?>" style="border-radius: 8px;">
                   <!-- <img style="height:129px;" src="<?= base_url() ?>assets/img/iklan/<?= $iklan->foto_iklan ?>" alt="<?= $iklan->nama_iklan ?>"> -->
                 </a>
 
@@ -121,7 +121,7 @@
       <div class="row">
 
         <div class="slider-area">
-          <img class="img-responsive" src="<?= base_url() ?>assets/img/slides/1798804720SuperSale_Yellow.jpg" alt="homedepo">
+          <img class="img-responsive" src="<?= base_url() ?>assets/img/slides/1798804720SuperSale_Yellow.jpg" alt="homedepo" style="border-radius: 8px;">
         </div>
 
       </div>
