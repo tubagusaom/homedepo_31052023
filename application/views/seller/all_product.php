@@ -106,7 +106,7 @@
               <ul class="products-grid columns4">
 
                 <?php
-                foreach ($show_product_all as $key => $productall) {
+                foreach ($data as $key => $productall) {
 
                     if ($productall->is_product == 0) {
                         $show_file_utama = $this->seller_model->show_file_utama($productall->id);
@@ -194,6 +194,19 @@
 
               </ul>
             </div>
+
+            <div class="col-md-3" style="margin-top:20px;margin-bottom:100px; border-top: 1px solid #ddd;">
+
+          </div>
+          <div class="col-md-9" style="margin-top:20px;margin-bottom:100px; border-top: 1px solid #ddd;">
+              <div class="halaman">
+                  <ul class="pager">
+                      <li class="previous">
+                          Halaman :<?php echo rtrim($halaman) ."<b>/" . ceil($jmldata / $per_page); ?>
+                      </li>
+                  </ul>
+              </div>
+          </div>
 
           </div>
         </div>

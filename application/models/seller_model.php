@@ -34,6 +34,33 @@ class Seller_Model extends MY_Model {
         return $query;
       }
 
+      public function get_all_product($id,$perpage, $offset)
+      {
+
+        // var_dump($id); die();
+
+        $this->db->select(
+          '
+            a.*,
+            b.id AS id_repo,
+            b.nama_file,
+            c.member,
+            c.inisial_member
+          '
+        );
+        // $this->db->like('a.nama_product', $search);
+        // $this->db->order_by('a.id', 'DESC');
+        $this->db->where('a.id_member =',$id);
+        $this->db->where('a.is_product !=','2');
+        // $this->db->where('a.id_member','111');
+        $this->db->limit($perpage);
+        $this->db->offset($offset);
+        $this->db->join('t_repositori b', 'a.id=b.id_product', 'left');
+        $this->db->join(kode_tbl() . 'members c', 'a.id_member=c.id', 'left');
+        $query = $this->db->get(kode_tbl() . 'product a');
+        return $query->result();
+      }
+
       function show_file_utama($id){
 
         // var_dump($id); die();

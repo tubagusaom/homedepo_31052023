@@ -6,9 +6,10 @@ class Seller extends MY_Controller {
 		parent::__construct();
 		$this->load->model('welcome_model');
 		$this->load->model('seller_model');
+        $this->load->library('pagination');
 	}
 
-	function detail($inisial) {
+	function detail($inisial,$offset=0) {
 
 		$data['aplikasi'] = $this->db->get('r_konfigurasi_aplikasi')->row();
 
@@ -78,7 +79,36 @@ class Seller extends MY_Controller {
 		$data['inisial_seller'] = $this->inisial_seller($seller_array[$inisial]);
 		$data['inisial'] = $show_seller->member." Produk";
 
-		// var_dump($data['xxx']); die();
+
+
+		$offset = $this->uri->segment(4);
+        // $this->db->where('id_group_users',6);
+        $this->db->where('id_member =',$seller_array[$inisial]);
+        $this->db->where('is_product !=','2');
+        // $this->db->like('nama_product', $keyword);
+        $jml = $this->db->get(kode_tbl().'product');
+        $data['jmldata'] = $jml->num_rows();
+
+        $config['enable_query_strings'] = true;
+        // $config['prefix'] = "?q=".$keyword."&rftb=true";
+        $config['suffix'] = "";
+
+        $config['base_url'] = base_url().'seller/detail/'.$inisial;
+        $config['total_rows'] = $jml->num_rows();
+        $config['per_page'] = 20;
+        $data['per_page'] = 20;
+        // $config['first_page'] = 'Awal';
+        // $config['last_page'] = 'Akhir';
+        // $config['next_page'] = '&laquo;';
+        // $config['prev_page'] = '&raquo;';
+        $config['uri_segment'] = 4;
+
+        $this->pagination->initialize($config);
+        //buat pagination
+        $data['halaman'] = $this->pagination->create_links();
+		$data['data'] = $this->seller_model->get_all_product($seller_array[$inisial],$config['per_page'],$offset);
+
+		// var_dump($data['data']); die();
 
 		// $data['show_file_utama'] = $this->seller_model->show_file_utama(14);
 		// $data['show_file'] = $this->seller_model->show_file(14);
