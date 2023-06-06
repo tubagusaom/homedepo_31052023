@@ -324,13 +324,75 @@
                     if (file_exists($get_img)) {
                 ?>
 
-                  <li>
+                    <!-- <div class=""> -->
+                    <div class="col-md-3 col-xs-6" style="padding: 10px 10px 20px 20px;">
+
+                      <div class="box-product product">
+                        <figure class="product-image-area responsivetb-product">
+
+                          <a href="<?= base_url() ?>product/detail/<?= $productterbaru->is_product ?>/<?= $productterbaru->id ?>/<?= $f_product ?>" title="<?= $productterbaru->nama_product ?>" class="product-image">
+                            <img class="imgtb-responsive" src="<?= $l_img ?>" alt="<?= $productterbaru->tag_product ?>">
+                            <!-- <img src="<?= base_url() ?>assets/img/product/<?= $productterbaru->nama_file ?>" alt="<?= $productterbaru->tag_product ?>" class="product-hover-image"> -->
+                          </a>
+
+                          <a href="<?= base_url() ?>product/detail/<?= $productterbaru->is_product ?>/<?= $productterbaru->id ?>/<?= $f_product ?>" class="product-quickview">
+                            <i class="fa fa-share-square-o"></i>
+                            <span>Lihat Produk</span>
+                          </a>
+
+                          <div class="product-actions">
+                            <a id="login-btn" data-toggle="modal" data-target="#myModal" href="#" class="in-favorit" title="Favoritkan">
+                              <i class="fa fa-heart" style="padding-top:8px;"></i>
+                            </a>
+
+                            <a id="login-btn" data-toggle="modal" data-target="#myModal" href="#" class="addtocart" title="Masukan Keranjang">
+                              <i class="fa fa-shopping-cart" style="padding-top:8px;"></i>
+                            </a>
+
+                            <!-- <a href="#" class="comparelink" title="Bagikan">
+                            <i class="fa fa-link" style="padding-top:8px;"></i>
+                          </a> -->
+                          </div>
+
+
+                        </figure>
+                        <div class="product-details-area">
+
+                          <h2 class="product-name name-i">
+                            <a href="<?=base_url('seller/detail/'.$seller_array[$productterbaru->id_member])?>" title="homedepo" style="color:#1c2a5f!important">
+                              <i class="fa fa-building-o" style="color:#db0c13;"></i>
+                              <?= $productterbaru->inisial_member ?>
+                            </a>
+                          </h2>
+
+                          <h2 class="product-name name-p">
+                          <a href="<?= base_url() ?>product/detail/<?= $productterbaru->is_product ?>/<?= $productterbaru->id ?>/<?= $f_product ?>" title="<?= $productterbaru->nama_product ?>">
+                              <?= $productterbaru->nama_product ?>
+                            </a>
+                          </h2>
+                          <!-- <div class="product-ratings">
+                        <div class="ratings-box">
+                          <div class="rating" style="width:60%"></div>
+                        </div>
+                      </div> -->
+
+                          <div class="product-price-box" style="text-align:left;">
+                            <span class="product-price text-price">
+                              Rp. <?= number_format($productterbaru->harga_product, 0, ',', '.') ?>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                <!-- </div> -->
+
+                  <!-- <li class="col-xs-6">
                     <div class="box-product product">
                       <figure class="product-image-area responsivetb-product">
 
                         <a href="<?= base_url() ?>product/detail/<?= $productterbaru->is_product ?>/<?= $productterbaru->id ?>/<?= $f_product ?>" title="<?= $productterbaru->nama_product ?>" class="product-image">
                           <img class="imgtb-responsive" src="<?= $l_img ?>" alt="<?= $productterbaru->tag_product ?>">
-                          <!-- <img src="<?= base_url() ?>assets/img/product/<?= $productterbaru->nama_file ?>" alt="<?= $productterbaru->tag_product ?>" class="product-hover-image"> -->
                         </a>
 
                         <a href="<?= base_url() ?>product/detail/<?= $productterbaru->is_product ?>/<?= $productterbaru->id ?>/<?= $f_product ?>" class="product-quickview">
@@ -346,10 +408,6 @@
                           <a id="login-btn" data-toggle="modal" data-target="#myModal" href="#" class="addtocart" title="Masukan Keranjang">
                             <i class="fa fa-shopping-cart" style="padding-top:8px;"></i>
                           </a>
-
-                          <!-- <a href="#" class="comparelink" title="Bagikan">
-                          <i class="fa fa-link" style="padding-top:8px;"></i>
-                        </a> -->
                         </div>
 
 
@@ -368,11 +426,6 @@
                             <?= $productterbaru->nama_product ?>
                           </a>
                         </h2>
-                        <!-- <div class="product-ratings">
-                      <div class="ratings-box">
-                        <div class="rating" style="width:60%"></div>
-                      </div>
-                    </div> -->
 
                         <div class="product-price-box" style="text-align:left;">
                           <span class="product-price text-price">
@@ -381,7 +434,7 @@
                         </div>
                       </div>
                     </div>
-                  </li>
+                  </li> -->
 
                 <?php }} ?>
 

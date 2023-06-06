@@ -361,7 +361,7 @@
                   if (file_exists($get_img)) {
                 ?>
 
-                  <li>
+                  <li class="col-sm-6">
                     <div class="box-product product">
                       <figure class="product-image-area responsivetb-product">
 
