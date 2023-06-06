@@ -64,15 +64,15 @@ class Seller extends MY_Controller {
 		$data['show_seller'] = $this->seller_model->show_seller($seller_array[$inisial]);
         $show_seller = $data['show_seller'];
 
-		$data['show_product_all'] = $this->seller_model->show_product_all($seller_array[$inisial]);
-        $show_product_all = $data['show_product_all'];
+		// $data['show_product_all'] = $this->seller_model->show_product_all($seller_array[$inisial]);
+        // $show_product_all = $data['show_product_all'];
 
-		$total_spa = count($show_product_all);
-		if ($total_spa == 0) {
-			$csps = "";
-		}else {
-			$csps = count($show_product_all);
-		}
+		// $total_spa = count($show_product_all);
+		// if ($total_spa == 0) {
+		// 	$csps = "";
+		// }else {
+		// 	$csps = count($show_product_all);
+		// }
 
 		$data['total_spa'] = $csps;
 
