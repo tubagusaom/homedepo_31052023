@@ -17,6 +17,12 @@
     padding: 0px!important;
     background-color: transparent!important;
   }
+
+  .owl-theme .owl-dots .owl-dot span {
+      width: 8px;
+      width: 20px;
+      margin: -2px;
+  }
 </style>
 
 <?php
