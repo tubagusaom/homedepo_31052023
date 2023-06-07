@@ -76,7 +76,7 @@
 
 				<!-- <a href="<?=base_url()?>my_shop/order_discussion_"> -->
         <a class="box-categories" href="<?=base_url()?>">
-          <div class="box-angka box-angka-green">
+          <div class="box-angka box-angka-light-blue">
             <div class="text-angka">0</div>
           </div> 
           <i class="fa fa-desktop color-fa-homedepo font-18"></i><em>Diskusi Baru</em>
@@ -84,7 +84,7 @@
 
 				<!-- <a href="<?=base_url()?>my_shop/order_complaint_"> -->
         <a class="box-categories" href="<?=base_url()?>">
-          <div class="box-angka box-angka-light-blue">
+          <div class="box-angka box-angka-green">
             <div class="text-angka">0</div>
           </div> 
           <i class="fa fa-laptop color-fa-homedepo font-20"></i><em>Komplainan</em>
