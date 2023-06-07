@@ -19,20 +19,9 @@
     }
   }
 
-  .jumlah-angka{
-    float: right;
-    margin: 10px;
-    padding: 0 2px 0 2px !important;
-    border-radius: 10px;
-    /* background: #1c2a5f; */
-    background: #db0c13;
-    border: 1px solid #db0c13;
-    color:#fff;
-  }
+
 
 </style>
-
-
 
     <div class="decoration-tb decoration-margins"></div>
 
@@ -62,28 +51,42 @@
 			<div class="store-categories bottom-30">
 
 				<!-- <a href="<?=base_url()?>my_shop/new_order_"> -->
-        <a href="<?=base_url()?>">
-          <div class="jumlah-angka">0</div> 
+        <a class="box-categories" href="<?=base_url()?>">
+          <div class="box-angka box-angka-light-blue">
+            <div class="text-angka">0</div>
+          </div> 
           <i class="fa fa-mobile color-fa-homedepo fa-2x"></i><em>Pesanan Baru</em>
         </a>
 
 				<!-- <a href="<?=base_url()?>my_shop/send_order_"> -->
         <a href="<?=base_url()?>">
+          <div class="box-angka box-angka-blue">
+            <div class="text-angka">0</div>
+          </div> 
           <i class="fa fa-truck color-fa-homedepo fa-2x"></i><em>Siap Dikirim</em>
         </a>
 
         <!-- <a href="<?=base_url()?>my_shop/order_completed_"> -->
-        <a href="<?=base_url()?>">
+        <a class="box-categories" href="<?=base_url()?>">
+          <div class="box-angka box-angka-red">
+            <div class="text-angka">0</div>
+          </div> 
           <i class="fa fa-shopping-cart color-fa-homedepo font-19"></i><em>Pesanan Selesai </em>
         </a>
 
 				<!-- <a href="<?=base_url()?>my_shop/order_discussion_"> -->
-        <a href="<?=base_url()?>">
+        <a class="box-categories" href="<?=base_url()?>">
+          <div class="box-angka box-angka-green">
+            <div class="text-angka">0</div>
+          </div> 
           <i class="fa fa-desktop color-fa-homedepo font-18"></i><em>Diskusi Baru</em>
         </a>
 
 				<!-- <a href="<?=base_url()?>my_shop/order_complaint_"> -->
-        <a href="<?=base_url()?>">
+        <a class="box-categories" href="<?=base_url()?>">
+          <div class="box-angka box-angka-light-blue">
+            <div class="text-angka">0</div>
+          </div> 
           <i class="fa fa-laptop color-fa-homedepo font-20"></i><em>Komplainan</em>
         </a>
 
