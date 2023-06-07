@@ -34,7 +34,7 @@
 
 
 
-    <div class="decoration decoration-margins"></div>
+    <div class="decoration-tb decoration-margins"></div>
 
     <!-- <a href="#"> -->
       <!-- <div class="content content-boxed content-boxed-padding content-margins pricing-tb bottom-50" style="max-width:1170px!important;">
@@ -52,7 +52,7 @@
     	</div> -->
     <!-- </a> -->
 
-    <div class="decoration decoration-margins"></div>
+    <div class="decoration-tb decoration-margins"></div>
 
     <div class="content-full">
 			<h4 class="uppercase ultrabold top-30 bottom-10 center-text"><i class="fa fa-bookmark icon-clear-right color-homedepo"></i>Aktivitas hari ini</h4>
@@ -63,7 +63,7 @@
 
 				<!-- <a href="<?=base_url()?>my_shop/new_order_"> -->
         <a href="<?=base_url()?>">
-          <div class="jumlah-angka">0</div>
+          <div class="jumlah-angka">0</div> 
           <i class="fa fa-mobile color-fa-homedepo fa-2x"></i><em>Pesanan Baru</em>
         </a>
 

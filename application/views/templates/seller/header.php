@@ -19,6 +19,7 @@
         <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets_mobile/fonts/css/fontawesome-all.min.css">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/global/plugins/font-awesome/css/font-awesome.min.css"/>
 
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets_mobile/styles/framework-tb.css">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets_mobile/styles/framework.css">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets_mobile/styles/style.css">
 
@@ -62,7 +63,7 @@
     <div class="page-build highlight-blue">
 
         <div class="header header-light header-logo-center">
-            <div id="xxx-tb-1" class="bg-dark-tb"></div>
+            <div id="close-tb-1" class="bg-dark-tb"></div>
             <a href="<?=base_url() ?>home" class="header-logo header-logo-text-tb">
               <!-- <?=$aplikasi->singkatan_unit ?> -->
               <font class="header-text-0"><?=$rolename?></font>
@@ -89,7 +90,7 @@
         <div class="page-content header-clear" style="background:whitesmoke">
           <div class="content">
         
-        <div id="xxx-tb-2" class="bg-dark-tb"></div>
+        <div id="close-tb-2" class="bg-dark-tb"></div>
         
         
         

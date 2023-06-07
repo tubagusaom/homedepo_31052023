@@ -1,0 +1,52 @@
+/* Framework-tb.CSS
+
+    Template Name:      tera.bytee Mobile Templates
+    Author:             @tera.bytee
+
+*/
+
+.hide-tb {
+    display: none;
+}
+
+.show-tb {
+    display: block;
+}
+
+.justify-tb{
+    text-align: justify;
+}
+
+.decoration-tb{
+    height:1px;
+    display:block;
+    margin-bottom:30px;
+    clear:both!important;
+    background-color:transparent;
+}
+
+.header-light-tb{
+    background-color:#FFFFFF;
+    box-shadow: 0 0 15px 1px rgba(0,0,0,0.15);
+}
+.header-light-tb .header-icon{
+    color:#1f1f1f;
+}
+
+.bg-dark-tb{
+    /* background-color:rgba(0,0,0,0.3)!important; */
+    background-color: rgba(28,42,95,0.3)!important;
+}
+
+#close-tb-1,
+#close-tb-2
+{
+    position:fixed;
+    top:0px;
+    left:0px;
+    right:0px;
+    bottom:0px;
+    z-index:99;
+
+    cursor: pointer;
+}
