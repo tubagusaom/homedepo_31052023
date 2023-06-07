@@ -28,11 +28,13 @@
             var base_url = '<?= site_url(); ?>';
         </script>
         <script src="<?php echo base_url() ?>assets_mobile/js/jquery.min.js"></script>
-        <link rel="icon" href="<?= base_url(); ?>favicon.ico">
+
+        <link rel="shortcut icon" href="<?= base_url() ?>assets/img/logo.jpg" type="image/x-icon" />
+      	<link rel="apple-touch-icon" href="<?= base_url() ?>assets/img/homedepo_icon.jpg">
 
         <style media="screen">
           .highlight-blue .menu-items .bg-highlight{
-            background-color: #1a8fb7!important;
+            /* background-color: #1a8fb7!important; */
           }
         </style>
 
@@ -52,12 +54,15 @@
           <img src="<?=base_url()?>loading.gif" alt="<?= $aplikasi->singkatan_unit ?>" style="width:50%;">
         </div>
 
-        <em>Copyright <?=$aplikasi->singkatan_unit ?> 2021. Develop By TB</em>
+        <em>Copyright <?=$aplikasi->singkatan_unit ?> <span class="copyright-year"></span>. Develop By TB</em>
     </div>
-
+    
     <body>
-    <div id="" class="page-build highlight-blue">
+    
+    <div class="page-build highlight-blue">
+
         <div class="header header-light header-logo-center">
+            <div id="xxx-tb-1" class="bg-dark-tb"></div>
             <a href="<?=base_url() ?>home" class="header-logo header-logo-text-tb">
               <!-- <?=$aplikasi->singkatan_unit ?> -->
               <font class="header-text-0"><?=$rolename?></font>
@@ -80,6 +85,11 @@
         <div id="menu-profile" class="menu-sidebar menu-homedepo menu-sidebar-right menu-sidebar-reveal">
           <?php $this->load->view('templates/seller/menu_kanan.php'); ?>
         </div>
-
+        
         <div class="page-content header-clear" style="background:whitesmoke">
           <div class="content">
+        
+        <div id="xxx-tb-2" class="bg-dark-tb"></div>
+        
+        
+        

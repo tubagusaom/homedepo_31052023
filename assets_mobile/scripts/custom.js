@@ -159,6 +159,18 @@ $(document).ready(function(){
 			$('.fake-shadow-left').removeClass('active-fake-shadow-left');
 			$('.fake-shadow-right').removeClass('active-fake-shadow-right');
 			$('.page-content').removeClass('page-content-reveal-shadow');
+
+			$('.header').addClass('header-light');
+			$('.header').removeClass('header-light-tb');
+
+			$('#xxx-tb-1').removeClass('show-tb');
+			$('#xxx-tb-1').addClass('hide-tb');
+			$('#xxx-tb-1').removeClass('bg-dark-tb');
+
+			$('#xxx-tb-2').removeClass('show-tb');
+			$('#xxx-tb-2').addClass('hide-tb');
+			$('#xxx-tb-2').removeClass('bg-dark-tb');
+
 			setTimeout(function(){
 				$('.sidebar-hider').removeClass('inactive-touch');
 				$('.menu-sidebar').addClass('inactive-touch');
@@ -887,6 +899,82 @@ $(document).ready(function(){
 	$('body').append('<div class="page-change-preloader preloader-light"><div id="preload-spinner" class="spinner-red"></div></div>');
 });
 
+
+$('.header-icon').on('click', function(){
+	$('.header').removeClass('header-light');
+	$('.header').addClass('header-light-tb');
+
+	$('#xxx-tb-1').addClass('show-tb');
+	$('#xxx-tb-1').removeClass('hide-tb');
+	$('#xxx-tb-1').addClass('bg-dark-tb');
+
+	$('#xxx-tb-2').addClass('show-tb');
+	$('#xxx-tb-2').removeClass('hide-tb');
+	$('#xxx-tb-2').addClass('bg-dark-tb');
+});
+
+$('#xxx-tb-1').addClass('hide-tb');
+$('#xxx-tb-2').addClass('hide-tb');
+
+$('#xxx-tb-1').on('click', function(){
+	$('.menu-flyin').removeClass('active-flyin');
+	$('.menu-sidebar').removeClass('active-touch menu-sidebar-shadow menu-sidebar-shadow-3d');
+	$('.menu-sidebar').removeClass('sidebar-push sidebar-over sidebar-parallax active-sidebar-3d');
+	$('.header, .page-content').removeClass('content-push-left content-push-right content-parallax-left content-parallax-right')
+	$('.menu-sidebar-3d-wrapper').removeClass('menu-sidebar-3d-wrapper-active');
+	$('#menu-hider').removeClass('menu-hider-active content-push-left content-push-right menu-hider-active-transparent');
+	$('.fake-shadow-left').removeClass('active-fake-shadow-left');
+	$('.fake-shadow-right').removeClass('active-fake-shadow-right');
+	$('.page-content').removeClass('page-content-reveal-shadow');
+
+	$('.header').addClass('header-light');
+	$('.header').removeClass('header-light-tb');
+
+	$('#xxx-tb-1').removeClass('show-tb');
+	$('#xxx-tb-1').addClass('hide-tb');
+	$('#xxx-tb-1').removeClass('bg-dark-tb');
+
+	$('#xxx-tb-2').removeClass('show-tb');
+	$('#xxx-tb-2').addClass('hide-tb');
+	$('#xxx-tb-2').removeClass('bg-dark-tb');
+	
+	setTimeout(function(){
+		$('.sidebar-hider').removeClass('inactive-touch');
+		$('.menu-sidebar').addClass('inactive-touch');
+	},universalTransitionTime);
+	$('.header').css('transform','');
+	return false;
+});
+
+$('#xxx-tb-2').on('click', function(){
+	$('.menu-flyin').removeClass('active-flyin');
+	$('.menu-sidebar').removeClass('active-touch menu-sidebar-shadow menu-sidebar-shadow-3d');
+	$('.menu-sidebar').removeClass('sidebar-push sidebar-over sidebar-parallax active-sidebar-3d');
+	$('.header, .page-content').removeClass('content-push-left content-push-right content-parallax-left content-parallax-right')
+	$('.menu-sidebar-3d-wrapper').removeClass('menu-sidebar-3d-wrapper-active');
+	$('#menu-hider').removeClass('menu-hider-active content-push-left content-push-right menu-hider-active-transparent');
+	$('.fake-shadow-left').removeClass('active-fake-shadow-left');
+	$('.fake-shadow-right').removeClass('active-fake-shadow-right');
+	$('.page-content').removeClass('page-content-reveal-shadow');
+
+	$('.header').addClass('header-light');
+	$('.header').removeClass('header-light-tb');
+
+	$('#xxx-tb-1').removeClass('show-tb');
+	$('#xxx-tb-1').addClass('hide-tb');
+	$('#xxx-tb-1').removeClass('bg-dark-tb');
+
+	$('#xxx-tb-2').removeClass('show-tb');
+	$('#xxx-tb-2').addClass('hide-tb');
+	$('#xxx-tb-2').removeClass('bg-dark-tb');
+	
+	setTimeout(function(){
+		$('.sidebar-hider').removeClass('inactive-touch');
+		$('.menu-sidebar').addClass('inactive-touch');
+	},universalTransitionTime);
+	$('.header').css('transform','');
+	return false;
+});
 
 /*
 

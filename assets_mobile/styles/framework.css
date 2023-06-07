@@ -5568,3 +5568,37 @@ input[type="range"]::-webkit-slider-thumb:after{
 .justify-tb{
   text-align: justify;
 }
+
+.header-light-tb{
+	background-color:#FFFFFF;
+	box-shadow: 0 0 15px 1px rgba(0,0,0,0.15);
+}
+.header-light-tb .header-icon{
+	color:#1f1f1f;
+}
+
+.bg-dark-tb{
+	/* background-color:rgba(0,0,0,0.3)!important; */
+	background-color: rgba(28,42,95,0.3)!important;
+}
+
+#xxx-tb-1,
+#xxx-tb-2
+{
+	position:fixed;
+	top:0px;
+	left:0px;
+	right:0px;
+	bottom:0px;
+	z-index:99;
+
+	cursor: pointer;
+}
+
+.hide-tb {
+	display: none;
+}
+
+.show-tb {
+	display: block;
+}

@@ -188,7 +188,6 @@ class Home extends MY_Controller
         }
 
 
-
         $aplikasi = $this->db->get('r_konfigurasi_aplikasi')->row();
 
         $this->load->model('welcome_model');

@@ -9,7 +9,7 @@
     background-size: 60px 53px;
     height: 70px;
   }
-</style>
+</style> 
 
 <div class="menu-scroll">
     <div class="sidebar-icons">
