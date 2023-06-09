@@ -53,6 +53,74 @@ class Product_model extends MY_Model
 
   }
 
+  function get_filter_product($perpage, $offset,$k, $id_k, $k1, $id_k1, $k2, $id_k2) {
+    // var_dump($k); die();
+
+    if (empty($k)) {
+      $f = "...";
+    } else {
+      $f = $k;
+    }
+
+    if (empty($k1)) {
+      $f1 = "...";
+    } else {
+      $f1 = $k1;
+    }
+
+    $menu_k   = $k;
+    $menu_id  = $id_k;
+    $kat_k    = $k1;
+    $kat_id   = $id_k1;
+    $sub_k    = $k2;
+    $sub_id   = $id_k2;
+
+
+    if (!empty($menu_id) and !empty($kat_k) and !empty($sub_id)) {
+      $ac = "id_sub_kategori";
+      $where1 = $this->db->where('a.id_sub_kategori', $id_k2);
+    } elseif (!empty($menu_id) and !empty($kat_k)) {
+      $ac = "id_kategori";
+      $where1 = $this->db->where('a.id_kategori', $id_k1);
+    } elseif (!empty($menu_id)) {
+      $ac = "id_menu_kategori";
+      $where1 = $this->db->where('a.id_menu_kategori', $id_k);
+    }
+
+    // var_dump($wheres); die();
+
+    $this->db->select(
+      '
+      a.*,
+      b.id AS id_repo,
+      b.nama_file,
+      c.member
+    '
+    );
+    $this->db->from(kode_tbl() . 'product' . ' a');
+
+    $this->db->join('t_repositori b', 'a.id=b.id_product');
+    $this->db->join(kode_tbl() . 'members c', 'a.id_member=c.id');
+    // $this->db->join(kode_tbl().'product_favorite c','a.id=c.id_product','left');
+    // $this->db->join(kode_tbl().'skema b', 'a.skema_sertifikasi = b.id', 'left');
+
+    // $this->db->where('c.id_member !=', $id_member);
+    $where1;
+    $this->db->where('b.nama_dokumen', 'produk_1');
+    $this->db->where('c.status_delete <', '2');
+    $this->db->order_by('a.id', 'DESC');
+    $this->db->group_by('a.id');
+    // $this->db->limit('50');
+
+    // $this->db->limit($perpage);
+    // $this->db->offset($offset);
+    $this->db->limit($perpage);
+    $this->db->offset($offset);
+
+    $query = $this->db->get();
+    return $query->result();
+  }
+
   function show_filter_product($k, $id_k, $k1, $id_k1, $k2, $id_k2)
   {
 

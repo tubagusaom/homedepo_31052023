@@ -115,10 +115,22 @@
 
               <?php
                 foreach ($show_filter_product as $key => $productterbaru) {
+
+                  if ($productterbaru->is_product == 1){
+                    $f_product = $productterbaru->nama_file.".jpg";
+                    $l_img = base_url()."assets/img/product/m10/".$productterbaru->nama_file.".jpg";
+                    $get_img = "assets/img/product/m10/".$productterbaru->nama_file.".jpg";
+                  }else {
+                    $f_product = $productterbaru->nama_file;
+                    $l_img = base_url()."assets/img/product/".$productterbaru->nama_file;
+                    $get_img = "assets/img/product/".$productterbaru->nama_file;
+                  }
+
+                  if (file_exists($get_img)) {
               ?>
 
               <div class="col-md-3 col-xs-6" style="padding: 10px 15px 20px 20px;">
-                <div class="product">
+                <div class="box-product product">
                   <figure class="product-image-area responsivetb-product">
 
                     <a href="<?=base_url()?>product/detail/<?=$productterbaru->is_product?>/<?=$productterbaru->id?>/<?=$productterbaru->nama_file?>" title="<?=$productterbaru->nama_product?>" class="product-image">
@@ -192,14 +204,14 @@
                   </figure>
                   <div class="product-details-area">
 
-                    <h2 class="product-name" style="text-align:left;font-size:10px;font-weight:700;">
+                    <h2 class="product-name name-i" style="text-align:left;font-size:10px;font-weight:700;">
                       <a href="#" title="homedepo" style="color:#1c2a5f!important">
                         <i class="fa fa-building" style="color:#db0c13;"></i>
                         <?=$productterbaru->member?>
                       </a>
                     </h2>
 
-                    <h2 class="product-name">
+                    <h2 class="product-name name-p">
                       <a href="#" title="<?=$productterbaru->nama_product?>">
                         <?=$productterbaru->nama_product?>
                       </a>
@@ -210,8 +222,8 @@
                       </div>
                     </div> -->
 
-                    <div class="product-price-box">
-                      <span class="product-price">
+                    <div class="product-price-box" style="text-align:left;">
+                      <span class="product-price text-price">
                         Rp. <?= number_format($productterbaru->harga_product,0,',','.') ?>
                       </span>
                     </div>
@@ -219,9 +231,22 @@
                 </div>
               </div>
 
-              <?php } ?>
+              <?php }} ?>
 
             </ul>
+          </div>
+
+          <div class="col-md-3" style="margin-top:20px;margin-bottom:100px; border-top: 1px solid #ddd;">
+
+          </div>
+          <div class="col-md-9" style="margin-top:20px;margin-bottom:100px; border-top: 1px solid #ddd;">
+              <div class="halaman">
+                  <ul class="pager">
+                      <li class="previous">
+                          Halaman :<?php echo rtrim($halaman) ."<b>/" . ceil($jmldata / $per_page); ?>
+                      </li>
+                  </ul>
+              </div>
           </div>
 
           <div id="Diskon" class="tab-pane">

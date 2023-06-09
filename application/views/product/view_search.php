@@ -231,8 +231,8 @@
                       </div>
                     </div> -->
 
-                    <div class="product-price-box">
-                      <span class="product-price">
+                    <div class="product-price-box" style="text-align:left;">
+                      <span class="product-price text-price">
                         Rp. <?= number_format($productterbaru->harga_product,0,',','.') ?>
                       </span>
                     </div>

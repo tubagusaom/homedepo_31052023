@@ -123,9 +123,9 @@ class Search extends MY_Controller {
 
 	}
 
-	function filter($k=false,$id_k=false,$k1=false,$id_k1=false,$k2=false,$id_k2=false) {
+	function filter($id=0,$offset=0,$k=false,$id_k=false,$k1=false,$id_k1=false,$k2=false,$id_k2=false) {
 
-		// var_dump($k); die();
+		// var_dump($id); die();
 
 		$id_member = $this->auth->get_user_data()->id_member;
 		$data['nama_user'] = $this->auth->get_user_data()->nama;
@@ -194,24 +194,8 @@ class Search extends MY_Controller {
 			//
 			// // var_dump($data['jmldata']); die();
 			// // var_dump($acuanid); die();
-			//
-			// $config['enable_query_strings'] = true;
-			// // $config['prefix'] = "?q=".$keyword."&rftb=true";
-			// $config['suffix'] = '/'.$sfx;
-			// // $config['suffix'] = '';
-			//
-			// $config['base_url'] = base_url().'f/'.$id;
-			// $config['total_rows'] = $jml->num_rows();
-			// $config['per_page'] = 20;
-			// $data['per_page'] = 20;
-			// $config['uri_segment'] = 4;
-			//
-			// $this->pagination->initialize($config);
-			// //buat pagination
-			// $data['halaman'] = $this->pagination->create_links();
-			// $data['show_filter_product'] = $this->product_model->show_filter_product($config['per_page'],$offset,$k,$id_k,$k1,$id_k1,$k2,$id_k2);
 
-		$data['show_filter_product'] = $this->product_model->show_filter_product($k,$id_k,$k1,$id_k1,$k2,$id_k2);
+
 
 		$menu_k   = $k;
 		$menu_id  = $id_k;
@@ -222,19 +206,53 @@ class Search extends MY_Controller {
 
 		if (!empty($menu_id) AND !empty($kat_k) AND !empty($sub_id)) {
 			$data['ket_filter'] = $sub_k;
+			$usegment = "4";
 		}elseif (!empty($menu_id) AND !empty($kat_k)) {
 			$data['ket_filter'] = $kat_k;
+			$usegment = "5";
 		}elseif (!empty($menu_id)) {
 			$data['ket_filter'] = $menu_k;
+			$usegment = "3";
 		}
 
 		$ket_filter = $data['ket_filter'];
 
 		$replace_ket = str_replace("%20"," ",$ket_filter);
-		$data['inisial']=$replace_ket;
+		$data['inisial']="Kategori ".$replace_ket;
 
-		// var_dump($menu_id); die();
+		// var_dump($menu_k); die();
 		// var_dump($data['show_filter_product']); die();
+
+		
+		$offset = $this->uri->segment($usegment);
+		// $this->db->where('id_group_users',6);
+		// $this->db->where('is_product !=','2');
+		// $this->db->like('nama_product', $keyword);
+		// $jml = $this->db->get(kode_tbl().'product');
+		// $data['jmldata'] = $jml->num_rows();
+
+		$show_filter_product = $this->product_model->show_filter_product($k,$id_k,$k1,$id_k1,$k2,$id_k2);
+		$jml =  count($show_filter_product);
+		$data['jmldata'] = count($show_filter_product);
+
+		$config['enable_query_strings'] = true;
+		// $config['prefix'] = "?q=".$keyword."&rftb=true";
+		$config['suffix'] = '/'.$sfx;
+		// $config['suffix'] = '';
+			
+		$config['base_url'] = base_url().'f/'.$id.'/'.$offset;
+		$config['total_rows'] = $jml;
+		$config['per_page'] = 20;
+		$data['per_page'] = 20;
+		$config['uri_segment'] = $usegment;
+			
+		$this->pagination->initialize($config);
+		//buat pagination
+		$data['halaman'] = $this->pagination->create_links();
+		$data['show_filter_product'] = $this->product_model->get_filter_product($config['per_page'],$offset,$k,$id_k,$k1,$id_k1,$k2,$id_k2);
+
+		var_dump($offset); die();
+		// var_dump($data['jmldata']); die();
 
 		}
 

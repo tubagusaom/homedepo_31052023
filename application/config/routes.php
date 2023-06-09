@@ -28,7 +28,7 @@ $route['daftar-buyer'] = "welcome/daftar";
 $route['produk-lainnya'] = "welcome/tampil_lainnya";
 
 
-$route['f/(:any)'] = "search/filter/$1";
+$route['f/(:any)'] = "search/filter/$1/$1";
 
 $route['sitemap\.xml'] = "sitemap/index";
 
