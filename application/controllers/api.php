@@ -8,13 +8,12 @@ require(APPPATH.'/libraries/RestController.php');
 class Api extends MY_Controller {
 
 	function __construct()
-
 	{
 		parent::__construct();
 
 		// $this->load->library('restapi');
 		$this->load->model('api_model');
-  }
+  	}
 
 
 		function index() {
