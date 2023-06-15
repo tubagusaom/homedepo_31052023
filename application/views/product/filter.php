@@ -239,7 +239,7 @@
           <div class="col-md-3" style="margin-top:20px;margin-bottom:100px; border-top: 1px solid #ddd;">
 
           </div>
-          <div class="col-md-9" style="margin-top:20px;margin-bottom:100px; border-top: 1px solid #ddd;">
+          <!-- <div class="col-md-9" style="margin-top:20px;margin-bottom:100px; border-top: 1px solid #ddd;">
               <div class="halaman">
                   <ul class="pager">
                       <li class="previous">
@@ -247,7 +247,7 @@
                       </li>
                   </ul>
               </div>
-          </div>
+          </div> -->
 
           <div id="Diskon" class="tab-pane">
             <ul class="products-grid columns4">

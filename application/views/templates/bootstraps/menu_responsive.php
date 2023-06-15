@@ -41,7 +41,7 @@
 
 				<li>
 					<span class="mmenu-toggle"></span>
-					<a href="<?= base_url() . 'f/' . $menus->menu_kategori . '/' . $menus->id ?>" class="<?= $this->uri->segment(3) == $menus->id ? 'activetb' : '' ?>">
+					<a href="<?= base_url() . 'search/filter/0/10/' . $menus->menu_kategori . '/' . $menus->id ?>" class="<?= $this->uri->segment(3) == $menus->id ? 'activetb' : '' ?>">
 						<?= $menus->menu_kategori ?>
 					</a>
 
@@ -54,7 +54,7 @@
 
 								<li>
 									<span class="mmenu-toggle"></span>
-									<a href="<?= base_url() . 'f/' . $menus->menu_kategori . '/' . $menus->id . '/' . $datakategoris->kategori . '/' . $datakategoris->id ?>" class="<?= $this->uri->segment(5) == $datakategoris->id ? 'activetb' : '' ?>">
+									<a href="<?= base_url() . 'search/filter/0/10/' . $menus->menu_kategori . '/' . $menus->id . '/' . $datakategoris->kategori . '/' . $datakategoris->id ?>" class="<?= $this->uri->segment(5) == $datakategoris->id ? 'activetb' : '' ?>">
 										<?= $datakategoris->kategori ?>
 									</a>
 									<ul>
@@ -65,7 +65,7 @@
 										?>
 
 												<li>
-													<a href="<?= base_url() . 'f/' . $menus->menu_kategori . '/' . $menus->id . '/' . $datakategoris->kategori . '/' . $datakategoris->id . '/' . $data_sub_kategoris->sub_kategori . '/' . $data_sub_kategoris->id ?>" class="<?= $this->uri->segment(7) == $data_sub_kategoris->id ? 'activetb' : '' ?>">
+													<a href="<?= base_url() . 'search/filter/0/10/' . $menus->menu_kategori . '/' . $menus->id . '/' . $datakategoris->kategori . '/' . $datakategoris->id . '/' . $data_sub_kategoris->sub_kategori . '/' . $data_sub_kategoris->id ?>" class="<?= $this->uri->segment(7) == $data_sub_kategoris->id ? 'activetb' : '' ?>">
 														<?= $data_sub_kategoris->sub_kategori ?>
 													</a>
 												</li>

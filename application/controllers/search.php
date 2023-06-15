@@ -120,7 +120,6 @@ class Search extends MY_Controller {
 		$this->load->view('product/view_search');
 		$this->load->view('templates/bootstraps/bottom',$data);
 
-
 	}
 
 	function filter($id=0,$offset=0,$k=false,$id_k=false,$k1=false,$id_k1=false,$k2=false,$id_k2=false) {
@@ -212,7 +211,7 @@ class Search extends MY_Controller {
 			$usegment = "5";
 		}elseif (!empty($menu_id)) {
 			$data['ket_filter'] = $menu_k;
-			$usegment = "3";
+			$usegment = "4";
 		}
 
 		$ket_filter = $data['ket_filter'];
@@ -240,18 +239,21 @@ class Search extends MY_Controller {
 		$config['suffix'] = '/'.$sfx;
 		// $config['suffix'] = '';
 			
-		$config['base_url'] = base_url().'f/'.$id.'/'.$offset;
+		// $config['base_url'] = base_url().'f/'.$id.'/'.$offset;
+		$config['base_url'] = base_url().'search/filter/'.$id.'/'.$k.'/'.$id_k.'/'.$k1.'/'.$id_k1.'/'.$k2.'/'.$id_k2;
 		$config['total_rows'] = $jml;
+		$config['uri_segment'] = $usegment;
 		$config['per_page'] = 20;
 		$data['per_page'] = 20;
-		$config['uri_segment'] = $usegment;
 			
 		$this->pagination->initialize($config);
 		//buat pagination
 		$data['halaman'] = $this->pagination->create_links();
-		$data['show_filter_product'] = $this->product_model->get_filter_product($config['per_page'],$offset,$k,$id_k,$k1,$id_k1,$k2,$id_k2);
 
-		var_dump($offset); die();
+		// $data['show_filter_product'] = $this->product_model->get_filter_product($config['per_page'],$offset,$k,$id_k,$k1,$id_k1,$k2,$id_k2);
+		$data['show_filter_product'] = $this->product_model->show_filter_product($k,$id_k,$k1,$id_k1,$k2,$id_k2);
+
+		// var_dump($config['per_page']); die();
 		// var_dump($data['jmldata']); die();
 
 		}
