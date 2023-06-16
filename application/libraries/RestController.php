@@ -17,6 +17,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
  *
  * @version         4.0.0
  */
+
 class RestController extends \MY_Controller
 {
     /**

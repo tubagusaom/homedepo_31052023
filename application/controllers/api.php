@@ -2,7 +2,10 @@
 
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-require(APPPATH.'/libraries/RestController.php');
+// require APPPATH . "libraries/format.php";
+// require APPPATH . "libraries/RestController.php";
+
+// use chriskacerguis\RestServer\RestController;
 
 // class Api extends RestController {
 class Api extends MY_Controller {
@@ -17,12 +20,12 @@ class Api extends MY_Controller {
 
 
 		function index() {
-			header('Content-Type: application/json');
 
-			$r = $this->api_model->response_api($id='405');
-			
+			$this->api_model->response_api($id='405');
+			echo json_encode($data);
 
-			// echo json_encode($data);
+			// $xxx = $this->config->rest_key_name();
+			// var_dump($xxx); die();
 
 		}
 
@@ -47,8 +50,6 @@ class Api extends MY_Controller {
 
 
 				// echo (APPPATH.'.libraries');
-
-
     }
 
     function schedule_all(){
@@ -66,68 +67,106 @@ class Api extends MY_Controller {
 
     }
 
+
+
+
+
+	function get_registered_api($id) {
+
+		// $id_member = $this->auth->get_user_data()->id_member;
+
+		$data = $this->api_model->get_api_key($id);
+
+		return ($data);
+		// var_dump(($data)); die();
+	}
+
+
 	function product() {
 		$request_method=$_SERVER["REQUEST_METHOD"];
-		switch ($request_method) {
-			case 'GET':
-				$id=$this->uri->segment(3);
 
-				  if(!empty($id))
-				  {
-					//  $this->api_model->response_api($id='200');
-					 $this->api_model->get_product($id);
-				  }
-				  else
-				  {
-					// $this->api_model->response_api($id='200');
-					$this->api_model->get_product();
-				  }
+		// $apikey = $inputs["api_key"];
 
-				  break;
-			case 'POST':
-				
-				date_default_timezone_set("Asia/Bangkok");
+		$apikey = $this->config->item('rest_key_name');
+		$keyval = $_GET[$apikey];
 
-				$data = array(
-				'kode_merchant' => $this->input->post('kode_merchant'),
-				'kode_sku' => $this->input->post('kode_sku'),
-				'kondisi' => $this->input->post('kondisi'),
-				//    'keterangan' => $this->input->post('keterangan'),
-				'min_pembelian' => $this->input->post('min_pembelian'),
-				'stok' => $this->input->post('stok'),
-				'harga' => $this->input->post('harga'),
-				'promo' => $this->input->post('promo'),
-				'berat_produk' => $this->input->post('berat_produk'),
-				'berat_paket' => $this->input->post('berat_paket'),
-				'created_by' => $this->input->post('kode_merchant')
-				);
+		$rest = $this->get_registered_api($keyval);
 
-				//   if(!empty($_GET["id"]))
-				//   {
-					//  $id=intval($_GET["id"]);
-					//  $mhs->update_mhs($id);
-					$r = $this->api_model->insert_product($data);
-					// $this->response($r);
+		
+		// var_dump(($rest)); die();
+		
+		if ($rest != null) {
 
-					return $r;
-				//   }
-				//   else
-				//   {
-				// 	//  $mhs->insert_mhs();
-				//   }
-				  break;
-			case 'DELETE':
-				//    $id=intval($_GET["id"]);
-				// 	 $mhs->delete_mhs($id);
-				$r = $this->api_model->response_api($id='405');
+			switch ($request_method) {
+				case 'GET':
 
-					 break;
-			default:
-			   // Invalid Request Method
-				  header("HTTP/1.0 405 Method Not Allowed");
-				  break;
-			   break;
-		 }
+					$id=$this->uri->segment(3);
+
+					if(!empty($id))
+					{
+						//  $this->api_model->response_api($id='200');
+						$this->api_model->get_product($id);
+					}
+					else
+					{
+						// $this->api_model->response_api($id='200');
+						$this->api_model->get_product();
+					}
+
+					
+
+					// var_dump($this->get_registered_api()->key); die();
+
+					break;
+				case 'POST':
+					
+					date_default_timezone_set("Asia/Bangkok");
+
+					$data = array(
+					'kode_merchant' => $this->input->post('kode_merchant'),
+					'kode_sku' => $this->input->post('kode_sku'),
+					'kondisi' => $this->input->post('kondisi'),
+					//    'keterangan' => $this->input->post('keterangan'),
+					'min_pembelian' => $this->input->post('min_pembelian'),
+					'stok' => $this->input->post('stok'),
+					'harga' => $this->input->post('harga'),
+					'promo' => $this->input->post('promo'),
+					'berat_produk' => $this->input->post('berat_produk'),
+					'berat_paket' => $this->input->post('berat_paket'),
+					'created_by' => $this->input->post('kode_merchant')
+					);
+
+					//   if(!empty($_GET["id"]))
+					//   {
+						//  $id=intval($_GET["id"]);
+						//  $mhs->update_mhs($id);
+						$r = $this->api_model->insert_product($data);
+						// $this->response($r);
+
+						return $r;
+					//   }
+					//   else
+					//   {
+					// 	//  $mhs->insert_mhs();
+					//   }
+					break;
+				case 'DELETE':
+					//    $id=intval($_GET["id"]);
+					// 	 $mhs->delete_mhs($id);
+					$r = $this->api_model->response_api($id='405');
+
+						break;
+				default:
+				// Invalid Request Method
+					header("HTTP/1.0 405 Method Not Allowed");
+					break;
+				break;
+			}
+
+		}else {
+			$r = $this->api_model->response_api($id='405');
+		}
+
 	}
 
 	// API POST

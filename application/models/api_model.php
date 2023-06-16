@@ -55,6 +55,22 @@ class Api_model extends MY_Model {
 
   }
 
+
+  public function get_api_key($key) {
+        // $this->db->where('user_id', $id);
+        // $this->db->limit(1);
+        $this->db->select('*');
+
+        // return $this->db->get('api_keys')->row();
+
+        $this->db->from('api_keys');
+    
+        $this->db->where('key', $key);
+        $query = $this->db->get();
+        return $query->row();
+  }
+
+
   public function get_product($id=false) {
     if ($id == false) {
         // return $this->db->get('r_konfigurasi_aplikasi')->result_array();

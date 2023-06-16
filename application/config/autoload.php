@@ -80,7 +80,12 @@ $autoload['helper'] = array('url', 'html', 'fn', 'form');
 |
 */
 
-$autoload['config'] = array();
+// $autoload['config'] = array();
+$autoload['config'] = array(
+    'rest',
+    'email',
+    'migration'
+);
 
 
 /*
