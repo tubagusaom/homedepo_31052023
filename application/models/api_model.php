@@ -151,7 +151,7 @@ class Api_model extends MY_Model {
                 c.province_name,
                 a.kode_member,
                 a.is_member,
-                count(b.id) AS total_product
+                count(b.kode_product) AS Total
             ');
             $this->db->from(kode_tbl() . 'members a');
             $this->db->join(kode_tbl() . 'product b', 'a.id=b.id_member');
@@ -162,7 +162,7 @@ class Api_model extends MY_Model {
 
             $query_row['LocationCode'] = $query->kode_member;
             $query_row['LocationStatus'] = $query->is_member;
-            $query_row['CountItems'] = $query->total_product;
+            $query_row['CountItems'] = $query->Total;
 
             $get_result['TaskId'] = $task_id;
             $get_result['SubTaskId'] = $sub_task_id;
@@ -178,7 +178,7 @@ class Api_model extends MY_Model {
             
 
         } else {
-            $result['response'] = $this->restapi->response_api('400');
+            $result['Response'] = $this->restapi->response_api('400');
         }
         
         $data_arr = $result;
