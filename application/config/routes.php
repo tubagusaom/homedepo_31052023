@@ -37,6 +37,9 @@ $route['sitemap\.xml'] = "sitemap/index";
 
 $route['rest-api'] = "api";
 $route['rest-api-scheduleall'] = "api/schedule_all";
+$route['rest-api/test_product'] = "api/test_product";
+
+$route['rest-api/toko'] = "api/detail_toko";
 
 
 
