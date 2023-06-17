@@ -41,7 +41,7 @@ class Restapi {
     $data=array(
         '200' => 'Success',
         '201' => 'Successfully Created.',
-        '400' => 'Invalid key. API key tidak ditemukan di database HomeDepo.',
+        '400' => 'Invalid key. API key not found in HomeDepo database.',
         '401' => 'Unauthorized.',
         '404' => 'Not Found.',
         '405' => 'NOT ALLOWED.',
