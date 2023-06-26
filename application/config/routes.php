@@ -39,7 +39,11 @@ $route['rest-api'] = "api";
 $route['rest-api-scheduleall'] = "api/schedule_all";
 $route['rest-api/test_product'] = "api/test_product";
 
-$route['restapi/toko'] = "api/detail_toko";
+$route['restapi/get_toko'] = "api/detail_toko";
+$route['restapi/get_product'] = "api/product";
+$route['restapi/get_stok_product'] = "api/stok_produk_arr";
+$route['restapi/get_stok_product_active'] = "api/stok_produk_aktif";
+$route['restapi/post_update_status_product'] = "api/update_status_product";
 
 
 

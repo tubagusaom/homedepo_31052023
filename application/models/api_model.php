@@ -86,58 +86,179 @@ class Api_model extends MY_Model {
     }
 
 
-    public function get_product($id=false) {
-        if ($id == false) {
-            // return $this->db->get('r_konfigurasi_aplikasi')->result_array();
+    public function get_product($task_id,$sub_task_id,$status,$page,$perpage,$sku,$data) {
 
-            $this->db->select('
-                id_member AS kode_merchant,
-                kode_product AS sku,
-                kondisi_product AS kondisi,
-                min_pesan_product AS min_pembelian,
-                jumlah_product AS stok,
-                harga_product AS harga,
-                disc_product AS promo,
-                berat_product AS berat_produk,
-                berat_paket AS berat_paket,
-                is_product AS status
-            ');
-            $this->db->from('api_product');
+        // var_dump($data->user_id); die();
+        // var_dump($data); die();
 
-            $data = $this->db->get();
-            $data_product = $data->result();
+        if ($data == TRUE) {
+
+            $id = $data->user_id;
+
+            // var_dump($page); die();
+
+            if (empty($sku)) {
+
+                if ($page == 1 ) {
+                    $offset = 0;
+                }else {
+                    $offset = (($page-1) * $perpage);
+                }
+
+                // var_dump($offset); die();
+
+                $this->db->select('
+                    a.kode_product AS ItemNo,
+                    a.is_product AS Status
+                ');
+                $this->db->from(kode_tbl().'product a');
+                $this->db->where("a.id_member",$id);
+                $this->db->order_by('a.kode_product', 'ASC');
+
+                $this->db->limit($perpage);
+                $this->db->offset($offset);
+
+                $data_sql = $this->db->get();
+                $data_product = $data_sql->result();
+                
+                // var_dump($xxx); die();
+
+            } else {
+
+                $this->db->select('
+                    a.kode_product AS ItemNo,
+                    a.is_product AS Status
+                ');
+                $this->db->from(kode_tbl().'product a');
+                // $this->db->join(kode_tbl() . 'members b', 'a.id_member=b.id');
+                $this->db->where("a.id_member",$id);
+                $this->db->where("a.kode_product",$sku);
+                
+                $data_sql = $this->db->get();
+                $data_product = $data_sql->row();
+            }
+
+            $get_result['TaskId'] = $task_id;
+            $get_result['SubTaskId'] = $sub_task_id;
+            $get_result['PageNo'] = $page;
+            $get_result['TotalDataPerPage'] = $perpage;
+
+            $get_result['ItemDetails'] = $data_product;
+            
+            $result = $get_result;
+            // $result['Data'] = $get_product;
+            $result['Status'] = $this->restapi->response_api('200');
 
         } else {
-            // return $this->db->get_where('r_konfigurasi_aplikasi', ['id' => $id])->result_array();
-
-            $this->db->select('
-                id_member AS kode_merchant,
-                kode_product AS kode_sku,
-                kondisi_product AS kondisi,
-                min_pesan_product AS min_pembelian,
-                jumlah_product AS jumlah,
-                harga_product AS harga,
-                disc_product AS promo,
-                berat_product AS berat_produk,
-                berat_paket AS berat_paket,
-                is_product AS status
-            ');
-            $this->db->from('api_product');
-            $this->db->where("kode_product",$id);
-            
-            $data = $this->db->get();
-            $data_product = $data->result();
+            $result['Status'] = $this->restapi->response_api('400');
         }
 
-        // return $data_product->result();
+        $data_arr = $result;
+        echo json_encode($data_arr);
 
-        // header('Content-Type: application/json');
-        $this->restapi->response_api('200');
-        $data_arr['data_product'] = $data_product;
+    }
+
+
+
+    function get_stok_arr($task_id,$sub_task_id,$status,$arr_sku,$data) {
+
+        $id_user = $data->user_id;
+
+        // var_dump($arr_sku); die();
+
+        if ($data == TRUE) {
+
+            $this->db->select('
+                a.kode_product AS ItemNo,
+                b.jumlah_product_api AS Qty
+            ');
+            $this->db->from(kode_tbl().'product a');
+            $this->db->join('api_product b', 'a.kode_product=b.kode_sku_api');
+
+            $this->db->where("a.id_member",$id_user);
+            $this->db->where_in('kode_product', $arr_sku);
+            $this->db->order_by('a.kode_product', 'ASC');
+
+            $data_sql = $this->db->get();
+            $data_product = $data_sql->result();
+
+            $get_result['TaskId'] = $task_id;
+            $get_result['SubTaskId'] = $sub_task_id;
+            $get_result['PageNo'] = $page;
+            $get_result['TotalDataPerPage'] = $perpage;
+
+            $get_result['StockItemDetails'] = $data_product;
+            
+            $result = $get_result;
+            // $result['Data'] = $get_product;
+            $result['Status'] = $this->restapi->response_api('200');
+
+        } else {
+            $result['Response'] = $this->restapi->response_api('400');
+        }
+        
+        $data_arr = $result;
         
         echo json_encode($data_arr);
 
     }
+
+
+
+    function get_stok_active($task_id,$sub_task_id,$status,$page,$perpage,$sku,$data) {
+        
+        if ($data == TRUE) {
+
+            $id = $data->user_id;
+
+            if ($page == 1 ) {
+                $offset = 0;
+            }else {
+                $offset = (($page-1) * $perpage);
+            }
+    
+            // var_dump($offset); die();
+    
+            $this->db->select('
+                a.kode_product AS ItemNo,
+                b.jumlah_product_api AS Qty
+            ');
+
+            $this->db->from(kode_tbl().'product a');
+            $this->db->join('api_product b', 'a.kode_product=b.kode_sku_api');
+
+            $this->db->where("a.id_member",$id);
+            $this->db->where("b.is_product_api",'1');
+
+            $this->db->order_by('a.kode_product', 'ASC');
+    
+            $this->db->limit($perpage);
+            $this->db->offset($offset);
+    
+            $data_sql = $this->db->get();
+            $data_product = $data_sql->result();
+    
+            $get_result['TaskId'] = $task_id;
+            $get_result['SubTaskId'] = $sub_task_id;
+            $get_result['PageNo'] = $page;
+            $get_result['TotalDataPerPage'] = $perpage;
+    
+            $get_result['StockItemDetails'] = $data_product;
+                
+            $result = $get_result;
+            // $result['Data'] = $get_product;
+            $result['Status'] = $this->restapi->response_api('200');
+
+        }else {
+            $result['Status'] = $this->restapi->response_api('400');
+        }
+
+        $data_arr = $result;
+        echo json_encode($data_arr);
+
+    }
+
+
 
     function get_toko($task_id,$sub_task_id,$status,$data) {
 
@@ -175,8 +296,6 @@ class Api_model extends MY_Model {
             $result['Data'] = $get_result;
             $result['Status'] = $this->restapi->response_api('200');
 
-            
-
         } else {
             $result['Response'] = $this->restapi->response_api('400');
         }
@@ -185,7 +304,5 @@ class Api_model extends MY_Model {
         
         echo json_encode($data_arr);
     }
-
-    
 
 }

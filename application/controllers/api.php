@@ -144,6 +144,7 @@ class Api extends MY_Controller {
 		}
 
 	}
+
 	
 	
 	function detail_toko(){
@@ -162,19 +163,127 @@ class Api extends MY_Controller {
 
 	}
 
-	// function product(){
-		
-	// }
+	function product(){
+		header('Content-Type: application/json');
 
-	// function stok(){
-		
-	// }
+		$rest = $this->config->item('rest_key_name');
+		$get_key = $_GET[$rest];
 
-	// function stok_produk_aktif(){
-		
-	// }
+		$apikey = $this->restapi->auth_api_key($get_key);
+		$task_id = $_GET['TaskId'];
+		$sub_task_id = $_GET['SubTaskId'];
+		$status = $_GET['Status'];
+		$sku = $_GET['KodeSku'];
 
-	// function update_stok_produk_aktif(){
+		$page = $_GET['PageNo'];
+		$perpage = $_GET['TotalDataPerPage'];
+		
+		$ReturnData = $this->api_model->get_product($task_id,$sub_task_id,$status,$page,$perpage,$sku,$apikey);
+	}
+
+	function stok_produk_arr(){
+		header('Content-Type: application/json');
+
+		$rest = $this->config->item('rest_key_name');
+		$get_key = $_GET[$rest];
+
+		$apikey = $this->restapi->auth_api_key($get_key);
+		$task_id = $_GET['TaskId'];
+		$sub_task_id = $_GET['SubTaskId'];
+		$status = $_GET['Status'];
+
+		// $sku_arr = ($_GET['KodeSku']);
+		$replace_arr = str_replace(" ","",$_GET['KodeSku']);
+		$sku_arr = explode (",",$replace_arr);
+
+		$page = $_GET['PageNo'];
+		$perpage = $_GET['TotalDataPerPage'];
+
+		// var_dump(($sku_arr)); die();
+
+		$ReturnData = $this->api_model->get_stok_arr($task_id,$sub_task_id,$status,$sku_arr,$apikey);
+	}
+
+	function stok_produk_aktif(){
+		header('Content-Type: application/json');
+
+		$rest = $this->config->item('rest_key_name');
+		$get_key = $_GET[$rest];
+
+		$apikey = $this->restapi->auth_api_key($get_key);
+		$task_id = $_GET['TaskId'];
+		$sub_task_id = $_GET['SubTaskId'];
+		$status = $_GET['Status'];
+		$sku = $_GET['KodeSku'];
+
+		$page = $_GET['PageNo'];
+		$perpage = $_GET['TotalDataPerPage'];
+		
+		$ReturnData = $this->api_model->get_stok_active($task_id,$sub_task_id,$status,$page,$perpage,$sku,$apikey);
+	}
+
+	
+
+	function update_status_product(){
+
+		date_default_timezone_set("Asia/Bangkok");
+
+		$rest = $this->config->item('rest_key_name');
+		$get_key = $_GET[$rest];
+
+		$apikey = $this->restapi->auth_api_key($get_key);
+
+		$task_id = $_GET['TaskId'];
+		$sub_task_id = $_GET['SubTaskId'];
+		$page = $_GET['PageNo'];
+		$perpage = $_GET['TotalDataPerPage'];
+
+		$kd_sku = $this->input->post('ItemNo');
+		// $stts 	= $this->input->post('Status');
+
+		$replace_sku_arr = str_replace(" ","",$kd_sku);
+		$sku_arr = explode ("|",$replace_sku_arr);
+
+		// $replace_stts_arr = str_replace(" ","",$stts);
+		// $stts_arr = explode (",",$replace_stts_arr);
+
+		// $seller_array = array(
+		// 	'119'=>'haston',
+		// 	'111'=>'mitra10',
+		// );
+
+		var_dump(json_encode($sku_arr)); die();
+
+		// $data = array(
+        //    'kode_merchant' => $this->input->post('ItemNo'),
+        //    'kode_sku' => $this->input->post('Status'),
+        //    'kondisi' => $this->input->post('kondisi'),
+        // 	// 'keterangan' => $this->input->post('keterangan'),
+        //    'min_pembelian' => $this->input->post('min_pembelian'),
+        //    'jumlah' => $this->input->post('jumlah'),
+        //    'harga' => $this->input->post('harga'),
+        //    'promo' => $this->input->post('promo'),
+        //    'berat_produk' => $this->input->post('berat_produk'),
+        //    'berat_paket' => $this->input->post('berat_paket'),
+        //    'is_product' => '1',
+        //    'created_by' => $this->input->post('kode_merchant'),
+        //    'created_when' => date("Y-m-d H:i:s")
+        //    );
+
+        // $r = $this->api_model->insert($data);
+        // // $this->response($r);
+
+		// return $r;
+
+		// $request_method=$_SERVER["REQUEST_METHOD"];
+
+		// var_dump($stts_arr); die();
+
+	}
+
+
+
+	// function update_stok_produk(){
 		
 	// }
 
@@ -190,43 +299,39 @@ class Api extends MY_Controller {
 		
 	// }
 
-	// function update_status_product(){
-		
-	// }
-
 	// function update_promosi(){
 		
 	// }
 
 	// // API POST
-	// function update_product(){
+	function update_product(){
 
-	// 	date_default_timezone_set("Asia/Bangkok");
+		date_default_timezone_set("Asia/Bangkok");
 
-	// 	$data = array(
-    //        'kode_merchant' => $this->input->post('kode_merchant'),
-    //        'kode_sku' => $this->input->post('kode_sku'),
-    //        'kondisi' => $this->input->post('kondisi'),
-    //     //    'keterangan' => $this->input->post('keterangan'),
-    //        'min_pembelian' => $this->input->post('min_pembelian'),
-    //        'jumlah' => $this->input->post('jumlah'),
-    //        'harga' => $this->input->post('harga'),
-    //        'promo' => $this->input->post('promo'),
-    //        'berat_produk' => $this->input->post('berat_produk'),
-    //        'berat_paket' => $this->input->post('berat_paket'),
-    //        'is_product' => '1',
-    //        'created_by' => $this->input->post('kode_merchant'),
-    //        'created_when' => date("Y-m-d H:i:s")
-    //        );
+		$data = array(
+           'kode_merchant' => $this->input->post('kode_merchant'),
+           'kode_sku' => $this->input->post('kode_sku'),
+           'kondisi' => $this->input->post('kondisi'),
+        //    'keterangan' => $this->input->post('keterangan'),
+           'min_pembelian' => $this->input->post('min_pembelian'),
+           'jumlah' => $this->input->post('jumlah'),
+           'harga' => $this->input->post('harga'),
+           'promo' => $this->input->post('promo'),
+           'berat_produk' => $this->input->post('berat_produk'),
+           'berat_paket' => $this->input->post('berat_paket'),
+           'is_product' => '1',
+           'created_by' => $this->input->post('kode_merchant'),
+           'created_when' => date("Y-m-d H:i:s")
+           );
 
-    //     $r = $this->api_model->insert($data);
-    //     // $this->response($r);
+        $r = $this->api_model->insert($data);
+        // $this->response($r);
 
-	// 	return $r;
+		return $r;
 
-	// 	// $request_method=$_SERVER["REQUEST_METHOD"];
+		// $request_method=$_SERVER["REQUEST_METHOD"];
 
-	// 	// var_dump($request_method); die();
-	// }
+		// var_dump($request_method); die();
+	}
 
 }
