@@ -292,7 +292,7 @@ class Api_model extends MY_Model {
             
             
             // $result['Merchant'] = json_encode([$query->member,$query->province_name]);
-            $result[$query->member] = $query->province_name;
+            // $result[$query->member] = $query->province_name;
             $result['Data'] = $get_result;
             $result['Status'] = $this->restapi->response_api('200');
 
