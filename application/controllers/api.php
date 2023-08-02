@@ -225,6 +225,7 @@ class Api extends MY_Controller {
 	
 
 	function update_status_product(){
+		header('Content-Type: application/json');
 
 		date_default_timezone_set("Asia/Bangkok");
 
@@ -237,22 +238,53 @@ class Api extends MY_Controller {
 		$sub_task_id = $_GET['SubTaskId'];
 		$page = $_GET['PageNo'];
 		$perpage = $_GET['TotalDataPerPage'];
+		
+		$sku 	= $this->input->post('StatusItemDetails');
+		$status = '';
+		
+		// $stts_json_decode = json_decode($stts, true);
 
-		$kd_sku = $this->input->post('ItemNo');
-		// $stts 	= $this->input->post('Status');
+		// $colors = array("red", "green", "blue", "yellow");
 
-		$replace_sku_arr = str_replace(" ","",$kd_sku);
-		$sku_arr = explode ("|",$replace_sku_arr);
+		// $arr_kalimat = explode ("},",$stts);
 
-		// $replace_stts_arr = str_replace(" ","",$stts);
-		// $stts_arr = explode (",",$replace_stts_arr);
+		// $this->db->select('kode_product,is_product');
+		// $this->db->select('kode_product AS ItemNo,is_product AS Status');
+		// $this->db->limit('2');
+		// $this->db->where('id_member', '111');
+		// $test_data = $this->db->get('tbl007_product')->result();
 
-		// $seller_array = array(
-		// 	'119'=>'haston',
-		// 	'111'=>'mitra10',
-		// );
+		// $get_result['TaskId'] = $task_id;
+		// // $get_result['StockItemDetails'] = $test_data;
+		// $result = $get_result;
 
-		var_dump(json_encode($sku_arr)); die();
+		$ReturnData = $this->api_model->get_product($task_id,$sub_task_id,$status,$page,$perpage,$sku,$apikey);
+
+		// $valdata[] = '';
+		// foreach ($test_data as $value) {
+			// $valdata['ItemNo'] = $value['kode_product'];
+			// $valdata['Status'] = $value['is_product'];
+
+			// $hfhf = json_encode($value['kode_product'], TRUE);
+			// $hfhf = json_encode($value['kode_product'], TRUE);
+		    // echo ($hfhf);
+			// echo (json_decode($value['is_product']));
+		// }
+
+		// $query_row['ItemNo'] = $test_data->kode_product;
+        // $query_row['Status'] = $test_data->is_product;
+
+		// $test_result['StatusItemDetails'] = $valdata;
+
+		// $data_json_encode = json_encode($get_result);
+		// $data_json_decode = json_decode($data_json_encode, true);
+		
+		// var_dump($task_id);
+
+		// foreach ($test_data as $value) {
+		// 	$hfhf = json_encode($value['ItemNo'], TRUE);
+		// 	echo ($hfhf);
+		// }
 
 		// $data = array(
         //    'kode_merchant' => $this->input->post('ItemNo'),
