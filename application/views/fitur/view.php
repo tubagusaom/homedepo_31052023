@@ -27,16 +27,20 @@
         }
 
         .iframe-wrapper {
-            position: relative;
-            padding-top: 100%;
+            /* position: relative;
+            padding-top: 100%; */
+            overflow: hidden;
+            width: 100%;
         }
 
         .iframe {
             position: absolute;
             width: 100%;
             height: 100%;
-            left: 0;
             top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
             border: none;
         }
         </style>
